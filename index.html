@@ -2,49 +2,200 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lucas Possamai - DevOps/Cloud Engineer specializing in Terraform and cloud infrastructure development based in Auckland, New Zealand">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Lucas Possamai - DevOps Engineer">
+    <meta property="og:description" content="Cloud infrastructure & Terraform specialist based in Auckland, NZ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lpossamai.github.io/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lucas Possamai - DevOps Engineer">
+    <meta name="twitter:description" content="Cloud infrastructure & Terraform specialist based in Auckland, NZ">
+
     <title>lpossamai</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Monofett&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Monofett&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
 </head>
-<style></style>
 <body>
     <div class="typeme"><span class="text-secondary">lpossamai@thanos </span><span class="text-background">~ </span><span class="cursor">$ </span>me -h</div>
-       <section class="output">
-    <ul class="links">
-    <li>
-        <a class="blog" href="https://dev.to/lpossamai" alt="blog" target="_blank">
-            Blog
-        </a>
-    </li> 
-    <li>
-        <a class="github" href="https://github.com/lpossamai" alt="github" target="_blank">
-            Github
-        </a>
-    </li>    
-    <li>
-        <a class="instagram" href="https://instagram.com/lpossamainz" alt="instagram" target="_blank">
-            Instagram
-        </a>
-    </li>    
+    <section class="output">
+        <ul class="links">
+            <li>
+                <a class="blog" href="https://dev.to/lpossamai" title="My Blog" target="_blank">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a class="github" href="https://github.com/lpossamai" title="My GitHub Profile" target="_blank">
+                    Github
+                </a>
+            </li>
+            <li>
+                <a class="instagram" href="https://instagram.com/lpossamainz" title="My Instagram" target="_blank">
+                    Instagram
+                </a>
+            </li>
+        </ul>
+        <p>
+            I'm a devops/cloud engineer who builds mostly with Terraform. I do contracts at <a class="cloudbit" href="https://cloudbit.co.nz" title="Cloudbit website" target="_blank">@cloudbit</a> which is my own business located in Auckland, New Zealand.
+        </p>
+        <div><span class="text-secondary">lpossamai@thanos </span><span class="text-background">~ </span><span class="cursor">$ </span>glow interests.md</div>
+        <h3>Interests</h3>
+        <ul>
+            <li>linux</li>
+            <li>terminals and terminal tools</li>
+            <li>cloud infrastructure development</li>
+            <li>cyber security</li>
+        </ul>
 
-    </ul>
-    <p>
-I'm a devops/cloud engineer who builds mostly with Terraform. I do contracts at <a class="cloudbit" href="https://cloudbit.co.nz" alt="cloudbit website" target="_blank">@cloudbit</a> which is my own business located in Auckland, New Zealand. 
-    </p>
-<div><span class="text-secondary">lpossamai@thanos </span><span class="text-background">~ </span><span class="cursor">$ </span>glow interests.md</div>
-<h3>Interests</h3>
-    <ul>
-        <li>linux</li>
-        <li>terminals and terminal tools</li>
-        <li>cloud infrastructure development</li>
-        <li>cyber security</li>
-    </ul>
+        <div><span class="text-secondary">lpossamai@thanos </span><span class="text-background">~ </span><span class="cursor">$ </span>gh stats --show</div>
+        <div class="github-stats">
+            <div class="stats-container">
+                <img id="github-stats" alt="Lucas Possamai's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=lpossamai&show_icons=true&theme=catppuccin_frappe" />
+                <img id="top-langs" alt="Lucas Possamai's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lpossamai&layout=compact&theme=catppuccin_frappe" />
+            </div>
+        </div>
 
+        <div class="terminal-section">
+            <div class="terminal-prompt">
+                <span class="text-secondary">lpossamai@thanos </span><span class="text-background">~ </span><span class="cursor">$ </span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+            <div id="terminal-output"></div>
+        </div>
     </section>
-<footer>
-    This site was styled with the <a href="https://github.com/catppuccin" alt="catppuccin github" target="_blank">Catppuccin theme</a>
-</footer>
+    <footer>
+        This site was styled with the <a href="https://github.com/catppuccin" title="Catppuccin GitHub" target="_blank">Catppuccin theme</a>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
+    </footer>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const githubStats = document.getElementById('github-stats');
+        const topLangs = document.getElementById('top-langs');
+
+        // Function to update GitHub stats cards based on theme
+        const updateGitHubStats = (theme) => {
+            const statsTheme = theme === 'dark' ? 'catppuccin_frappe' : 'catppuccin_latte';
+
+            if (githubStats) {
+                const statsUrl = new URL(githubStats.src);
+                statsUrl.searchParams.set('theme', statsTheme);
+                githubStats.src = statsUrl.toString();
+            }
+
+            if (topLangs) {
+                const langsUrl = new URL(topLangs.src);
+                langsUrl.searchParams.set('theme', statsTheme);
+                topLangs.src = langsUrl.toString();
+            }
+        };
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        document.body.classList.add(currentTheme);
+
+        // Update button text based on current theme
+        toggleButton.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+
+        // Set initial GitHub stats theme
+        updateGitHubStats(currentTheme);
+
+        // Toggle theme on button click
+        toggleButton.addEventListener('click', () => {
+            const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+            document.body.classList.remove('dark', 'light');
+            document.body.classList.add(newTheme);
+            toggleButton.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('theme', newTheme);
+
+            // Update GitHub stats theme
+            updateGitHubStats(newTheme);
+        });
+
+        // Terminal functionality
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalOutput = document.getElementById('terminal-output');
+
+        // Available commands
+        const commands = {
+            help: () => {
+                return `Available commands:
+  help          - Show this help message
+  clear         - Clear the terminal
+  about         - About me
+  contact       - How to reach me
+  projects      - View my notable projects
+  skills        - List my technical skills
+  social        - List my social links`;
+            },
+            about: () => {
+                return "I'm a devops/cloud engineer who builds mostly with Terraform. I do contracts at @cloudbit which is my own business located in Auckland, New Zealand.";
+            },
+            clear: () => {
+                terminalOutput.innerHTML = '';
+                return '';
+            },
+            contact: () => {
+                return "You can reach me at:\n  - GitHub: https://github.com/lpossamai\n  - Blog: https://dev.to/lpossamai";
+            },
+            projects: () => {
+                return "Check out my GitHub profile for my recent projects: https://github.com/lpossamai";
+            },
+            skills: () => {
+                return "Technical Skills:\n  - Terraform\n  - AWS/Azure/GCP\n  - Linux administration\n  - Containers & Kubernetes\n  - DevOps/CI/CD pipelines";
+            },
+            social: () => {
+                return "Social links:\n  - GitHub: https://github.com/lpossamai\n  - Blog: https://dev.to/lpossamai\n  - Instagram: https://instagram.com/lpossamainz";
+            }
+        };
+
+        // Process terminal commands
+        const processCommand = (input) => {
+            const command = input.trim().toLowerCase();
+
+            if (command === '') {
+                return '';
+            }
+
+            if (commands[command]) {
+                return commands[command]();
+            } else {
+                return `Command not found: ${command}. Type 'help' for available commands.`;
+            }
+        };
+
+        // Handle terminal input
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const command = terminalInput.value;
+                const prompt = `<span class="text-secondary">lpossamai@thanos</span> <span class="text-background">~</span> <span class="cursor">$</span> ${command}`;
+
+                // Add command to output
+                const commandElement = document.createElement('div');
+                commandElement.innerHTML = prompt;
+                terminalOutput.appendChild(commandElement);
+
+                // Process and add response
+                const response = processCommand(command);
+                if (response) {
+                    const responseElement = document.createElement('div');
+                    responseElement.classList.add('terminal-response');
+                    responseElement.innerText = response;
+                    terminalOutput.appendChild(responseElement);
+                }
+
+                // Clear input and scroll to bottom
+                terminalInput.value = '';
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+        });
+    </script>
 </body>
 </html>
