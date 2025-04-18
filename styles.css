@@ -1,0 +1,744 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #0c0c0c;
+  color: #33ff33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme variations - Colors */
+body.theme-default {
+  color: #33ff33;
+  /* Green */
+}
+
+body.theme-blue {
+  color: #33ccff;
+  /* Blue */
+}
+
+body.theme-purple {
+  color: #cc33ff;
+  /* Purple */
+}
+
+body.theme-amber {
+  color: #ffcc00;
+  /* Amber */
+}
+
+body.theme-pink {
+  color: #ff66cc;
+  /* Pink */
+}
+
+/* Dark/Light Theme Variations */
+body.theme-dark {
+  background-color: #0c0c0c;
+  color: #33ff33;
+}
+
+body.theme-light {
+  background-color: #f5f5f5;
+  color: #0c6600;
+}
+
+/* Terminal container themes */
+body.theme-dark .terminal-container {
+  background-color: #0c0c0c;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+body.theme-light .terminal-container {
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(12, 102, 0, 0.15);
+}
+
+/* Terminal header themes */
+body.theme-dark .terminal-header {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+body.theme-light .terminal-header {
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+}
+
+body.theme-light .terminal-title {
+  color: #555;
+}
+
+/* Command output themes */
+body.theme-dark .command-output {
+  color: #cccccc;
+}
+
+body.theme-light .command-output {
+  color: #333333;
+}
+
+body.theme-dark .command-output h2,
+body.theme-dark .command-output h3 {
+  color: #ffffff;
+}
+
+body.theme-light .command-output h2,
+body.theme-light .command-output h3 {
+  color: #222222;
+}
+
+body.theme-dark .command-output h2 {
+  border-bottom: 1px solid #333;
+}
+
+body.theme-light .command-output h2 {
+  border-bottom: 1px solid #ddd;
+}
+
+body.theme-dark .date,
+body.theme-dark .tech-stack {
+  color: #888;
+}
+
+body.theme-light .date,
+body.theme-light .tech-stack {
+  color: #666;
+}
+
+/* Links in light mode */
+body.theme-light .command-output a {
+  color: #0066cc;
+}
+
+body.theme-light .theme-link:hover {
+  background-color: #eee;
+}
+
+/* Prompt and input themes */
+body.theme-dark .prompt,
+body.theme-dark #terminal-input,
+body.theme-dark .cursor,
+body.theme-dark .command-output strong {
+  color: #33ff33;
+}
+
+body.theme-light .prompt,
+body.theme-light #terminal-input,
+body.theme-light .cursor,
+body.theme-light .command-output strong {
+  color: #0c6600;
+}
+
+/* Color themes - existing styles modified to work with dark/light */
+body.theme-blue .prompt,
+body.theme-blue #terminal-input,
+body.theme-blue .cursor,
+body.theme-blue .command-output strong {
+  color: #33ccff;
+}
+
+body.theme-purple .prompt,
+body.theme-purple #terminal-input,
+body.theme-purple .cursor,
+body.theme-purple .command-output strong {
+  color: #cc33ff;
+}
+
+body.theme-amber .prompt,
+body.theme-amber #terminal-input,
+body.theme-amber .cursor,
+body.theme-amber .command-output strong {
+  color: #ffcc00;
+}
+
+body.theme-pink .prompt,
+body.theme-pink #terminal-input,
+body.theme-pink .cursor,
+body.theme-pink .command-output strong {
+  color: #ff66cc;
+}
+
+/* Light mode color themes */
+body.theme-light.theme-blue .prompt,
+body.theme-light.theme-blue #terminal-input,
+body.theme-light.theme-blue .cursor,
+body.theme-light.theme-blue .command-output strong {
+  color: #0066cc;
+}
+
+body.theme-light.theme-purple .prompt,
+body.theme-light.theme-purple #terminal-input,
+body.theme-light.theme-purple .cursor,
+body.theme-light.theme-purple .command-output strong {
+  color: #6600cc;
+}
+
+body.theme-light.theme-amber .prompt,
+body.theme-light.theme-amber #terminal-input,
+body.theme-light.theme-amber .cursor,
+body.theme-light.theme-amber .command-output strong {
+  color: #cc6600;
+}
+
+body.theme-light.theme-pink .prompt,
+body.theme-light.theme-pink #terminal-input,
+body.theme-light.theme-pink .cursor,
+body.theme-light.theme-pink .command-output strong {
+  color: #cc0066;
+}
+
+/* CRT screen effect - only in dark mode */
+body.theme-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+body.theme-light::before {
+  display: none;
+}
+
+/* Terminal container */
+.terminal-container {
+  width: 800px;
+  height: 500px;
+  background-color: #0c0c0c;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Terminal header */
+.terminal-header {
+  height: 30px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button.close {
+  background-color: #ff5f56;
+}
+
+.terminal-button.minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-button.maximize {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  margin-left: auto;
+  margin-right: auto;
+  color: #aaa;
+  font-size: 14px;
+  text-transform: lowercase;
+  transition: color 0.3s ease;
+}
+
+/* Terminal body */
+.terminal-body {
+  height: calc(100% - 30px);
+  padding: 10px 15px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Terminal output */
+.terminal-output {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  transition: color 0.3s ease;
+}
+
+.terminal-output div {
+  margin-bottom: 8px;
+}
+
+.intro-text {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Command output styling */
+.command-output {
+  padding: 5px 0 10px 20px;
+  color: #cccccc;
+  transition: color 0.3s ease;
+}
+
+.command-output h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.command-output h3 {
+  color: #ffffff;
+  margin: 8px 0 5px 0;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.command-output p {
+  margin-bottom: 8px;
+}
+
+.command-output ul,
+.command-output ol {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.command-output li {
+  margin-bottom: 4px;
+}
+
+.command-output strong {
+  color: #33ff33;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.command-output a {
+  color: #3498db;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.command-output a:hover {
+  text-decoration: underline;
+}
+
+/* Specific command outputs */
+.skill-category,
+.experience-item,
+.education-item,
+.project-item {
+  margin-bottom: 15px;
+}
+
+.date {
+  font-style: italic;
+  color: #888;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.tech-stack {
+  font-size: 0.9em;
+  color: #888;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.social-links,
+.download-links,
+.theme-options {
+  list-style-type: none;
+  margin-left: 0 !important;
+}
+
+.theme-link {
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.theme-link:hover {
+  background-color: #222;
+  transition: background-color 0.3s ease;
+}
+
+/* Mode switcher button */
+.mode-switcher {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 10;
+  padding: 3px 8px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+body.theme-dark .mode-switcher:hover {
+  background-color: #333;
+}
+
+body.theme-light .mode-switcher:hover {
+  background-color: #ddd;
+}
+
+/* Terminal input line */
+.terminal-input-line {
+  display: flex;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.prompt {
+  color: #33ff33;
+  margin-right: 8px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.input-container {
+  position: relative;
+  flex: 1;
+}
+
+#terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #33ff33;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  width: 100%;
+  caret-color: transparent;
+  /* Hide default cursor */
+  transition: color 0.3s ease;
+}
+
+/* Blinking cursor */
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 18px;
+  background-color: #33ff33;
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Scanline effect - only in dark mode */
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+body.theme-dark .terminal-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom,
+      rgba(51, 255, 51, 0) 0%,
+      rgba(51, 255, 51, 0.15) 50%,
+      rgba(51, 255, 51, 0) 100%);
+  animation: scanline 8s linear infinite;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+body.theme-light .terminal-body::after {
+  display: none;
+}
+
+/* Glow effect - only in dark mode */
+@keyframes textShadowGlow {
+  0% {
+    text-shadow: 0 0 3px rgba(51, 255, 51, 0.6);
+  }
+
+  50% {
+    text-shadow: 0 0 5px rgba(51, 255, 51, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 3px rgba(51, 255, 51, 0.6);
+  }
+}
+
+body.theme-dark .terminal-output,
+body.theme-dark .prompt,
+body.theme-dark #terminal-input {
+  animation: textShadowGlow 3s infinite;
+}
+
+body.theme-light .terminal-output,
+body.theme-light .prompt,
+body.theme-light #terminal-input {
+  animation: none;
+  text-shadow: none;
+}
+
+/* Themed glow effects - only in dark mode */
+body.theme-dark.theme-blue .terminal-output,
+body.theme-dark.theme-blue .prompt,
+body.theme-dark.theme-blue #terminal-input {
+  animation: blueShadowGlow 3s infinite;
+}
+
+@keyframes blueShadowGlow {
+  0% {
+    text-shadow: 0 0 3px rgba(51, 204, 255, 0.6);
+  }
+
+  50% {
+    text-shadow: 0 0 5px rgba(51, 204, 255, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 3px rgba(51, 204, 255, 0.6);
+  }
+}
+
+body.theme-dark.theme-purple .terminal-output,
+body.theme-dark.theme-purple .prompt,
+body.theme-dark.theme-purple #terminal-input {
+  animation: purpleShadowGlow 3s infinite;
+}
+
+@keyframes purpleShadowGlow {
+  0% {
+    text-shadow: 0 0 3px rgba(204, 51, 255, 0.6);
+  }
+
+  50% {
+    text-shadow: 0 0 5px rgba(204, 51, 255, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 3px rgba(204, 51, 255, 0.6);
+  }
+}
+
+body.theme-dark.theme-amber .terminal-output,
+body.theme-dark.theme-amber .prompt,
+body.theme-dark.theme-amber #terminal-input {
+  animation: amberShadowGlow 3s infinite;
+}
+
+@keyframes amberShadowGlow {
+  0% {
+    text-shadow: 0 0 3px rgba(255, 204, 0, 0.6);
+  }
+
+  50% {
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 3px rgba(255, 204, 0, 0.6);
+  }
+}
+
+body.theme-dark.theme-pink .terminal-output,
+body.theme-dark.theme-pink .prompt,
+body.theme-dark.theme-pink #terminal-input {
+  animation: pinkShadowGlow 3s infinite;
+}
+
+@keyframes pinkShadowGlow {
+  0% {
+    text-shadow: 0 0 3px rgba(255, 102, 204, 0.6);
+  }
+
+  50% {
+    text-shadow: 0 0 5px rgba(255, 102, 204, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 3px rgba(255, 102, 204, 0.6);
+  }
+}
+
+/* Cursor colors for themes */
+body.theme-blue .cursor {
+  background-color: #33ccff;
+}
+
+body.theme-purple .cursor {
+  background-color: #cc33ff;
+}
+
+body.theme-amber .cursor {
+  background-color: #ffcc00;
+}
+
+body.theme-pink .cursor {
+  background-color: #ff66cc;
+}
+
+body.theme-light.theme-blue .cursor {
+  background-color: #0066cc;
+}
+
+body.theme-light.theme-purple .cursor {
+  background-color: #6600cc;
+}
+
+body.theme-light.theme-amber .cursor {
+  background-color: #cc6600;
+}
+
+body.theme-light.theme-pink .cursor {
+  background-color: #cc0066;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 850px) {
+  .terminal-container {
+    width: 95%;
+    height: 80vh;
+  }
+
+  .command-output h2 {
+    font-size: 1.2em;
+  }
+
+  .command-output h3 {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .terminal-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .terminal-body {
+    padding: 10px 8px;
+  }
+
+  .prompt {
+    font-size: 14px;
+  }
+
+  #terminal-input {
+    font-size: 14px;
+  }
+
+  .cursor {
+    height: 16px;
+  }
+
+  .command-output {
+    padding: 5px 0 10px 10px;
+  }
+
+  .command-output ul,
+  .command-output ol {
+    margin-left: 10px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .terminal-container {
+    height: 90vh;
+  }
+
+  .terminal-header {
+    height: 25px;
+  }
+
+  .terminal-body {
+    height: calc(100% - 25px);
+    padding: 8px;
+  }
+
+  .command-output {
+    padding: 3px 0 8px 10px;
+  }
+
+  .command-output h2 {
+    margin-bottom: 5px;
+  }
+}
+
+/* Adding some print styles for good measure */
+@media print {
+  body::before {
+    display: none;
+  }
+
+  .terminal-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .cursor {
+    display: none;
+  }
+
+  .terminal-body::after {
+    display: none;
+  }
+}
