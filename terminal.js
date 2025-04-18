@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const terminalInput = document.getElementById('terminal-input');
   const output = document.getElementById('output');
   const cursor = document.querySelector('.cursor');
+  const terminalBody = document.querySelector('.terminal-body');
 
   // Apply saved theme settings
   applyThemeSettings();
@@ -87,6 +88,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let commandHistory = [];
   let historyIndex = -1;
 
+  // Add scroll indicator animation
+  function animateScrollIndicator() {
+    terminalBody.classList.add('scrolling');
+
+    // Remove the class after the animation completes
+    setTimeout(() => {
+      terminalBody.classList.remove('scrolling');
+    }, 1000);
+  }
+
   // Handle keyboard input
   terminalInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
@@ -131,14 +142,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Add text to terminal output
+  // Add text to terminal output with improved auto-scrolling
   function addToOutput(text) {
     const line = document.createElement('div');
     line.innerHTML = text;
+
+    // Add the new-line class for animation
+    line.classList.add('new-line');
     output.appendChild(line);
 
-    // Scroll to bottom of output
-    output.scrollTop = output.scrollHeight;
+    // Ensure the scroll happens after the DOM is updated and content is rendered
+    setTimeout(() => {
+      // Check if scrolling is needed
+      const isScrollNeeded = terminalBody.scrollHeight > terminalBody.clientHeight;
+      const isNearBottom = terminalBody.scrollTop + terminalBody.clientHeight >= terminalBody.scrollHeight - 100;
+
+      // Only smooth scroll if we're already near the bottom or if the content isn't overflowing yet
+      if (isNearBottom || !isScrollNeeded) {
+        // Show scroll indicator
+        animateScrollIndicator();
+
+        // Smooth scroll to the bottom
+        terminalBody.scrollTo({
+          top: terminalBody.scrollHeight,
+          behavior: 'smooth'
+        });
+      } else {
+        // If we're scrolled up, show a notification without auto-scrolling
+        const scrollNotifier = document.createElement('div');
+        scrollNotifier.className = 'scroll-notifier';
+        scrollNotifier.textContent = 'New output below ↓';
+        scrollNotifier.onclick = () => {
+          terminalBody.scrollTo({
+            top: terminalBody.scrollHeight,
+            behavior: 'smooth'
+          });
+          scrollNotifier.remove();
+        };
+
+        // Add the notifier if it doesn't exist yet
+        if (!document.querySelector('.scroll-notifier')) {
+          terminalBody.appendChild(scrollNotifier);
+
+          // Auto-remove after 5 seconds
+          setTimeout(() => {
+            if (document.body.contains(scrollNotifier)) {
+              scrollNotifier.remove();
+            }
+          }, 5000);
+        }
+      }
+
+      // Remove the animation class after it completes
+      setTimeout(() => {
+        line.classList.remove('new-line');
+      }, 1000);
+    }, 10);
   }
 
   // Command functions

@@ -281,6 +281,47 @@ body.theme-light::before {
   padding: 10px 15px;
   overflow-y: auto;
   position: relative;
+  scroll-behavior: smooth;
+  /* Enable smooth scrolling */
+}
+
+/* Custom scrollbar for terminal */
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(51, 255, 51, 0.5);
+  border-radius: 4px;
+}
+
+body.theme-light .terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(12, 102, 0, 0.3);
+}
+
+body.theme-blue .terminal-body::-webkit-scrollbar-thumb,
+body.theme-light.theme-blue .terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(51, 204, 255, 0.5);
+}
+
+body.theme-purple .terminal-body::-webkit-scrollbar-thumb,
+body.theme-light.theme-purple .terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(204, 51, 255, 0.5);
+}
+
+body.theme-amber .terminal-body::-webkit-scrollbar-thumb,
+body.theme-light.theme-amber .terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 204, 0, 0.5);
+}
+
+body.theme-pink .terminal-body::-webkit-scrollbar-thumb,
+body.theme-light.theme-pink .terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 102, 204, 0.5);
 }
 
 /* Terminal output */
@@ -293,6 +334,67 @@ body.theme-light::before {
 
 .terminal-output div {
   margin-bottom: 8px;
+}
+
+/* Auto-scrolling animation for new line */
+.new-line {
+  animation: fadeInLine 0.5s ease-out;
+  position: relative;
+  left: 0;
+}
+
+/* New line fade in animation */
+@keyframes fadeInLine {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll indicator animation */
+body.theme-dark .terminal-body::after {
+  content: '';
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(51, 255, 51, 0.8);
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+  animation: none;
+}
+
+body.theme-light .terminal-body::after {
+  background-color: rgba(12, 102, 0, 0.8);
+}
+
+.terminal-body.scrolling::after {
+  animation: pulseScrollIndicator 1s ease-out;
+}
+
+@keyframes pulseScrollIndicator {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
 }
 
 .intro-text {
@@ -740,5 +842,63 @@ body.theme-light.theme-pink .cursor {
 
   .terminal-body::after {
     display: none;
+  }
+}
+
+/* Scroll notifier */
+.scroll-notifier {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(51, 255, 51, 0.8);
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeInNotifier 0.3s ease-in-out;
+}
+
+body.theme-light .scroll-notifier {
+  background-color: rgba(12, 102, 0, 0.8);
+  color: #fff;
+}
+
+body.theme-blue .scroll-notifier,
+body.theme-light.theme-blue .scroll-notifier {
+  background-color: rgba(51, 204, 255, 0.8);
+}
+
+body.theme-purple .scroll-notifier,
+body.theme-light.theme-purple .scroll-notifier {
+  background-color: rgba(204, 51, 255, 0.8);
+}
+
+body.theme-amber .scroll-notifier,
+body.theme-light.theme-amber .scroll-notifier {
+  background-color: rgba(255, 204, 0, 0.8);
+}
+
+body.theme-pink .scroll-notifier,
+body.theme-light.theme-pink .scroll-notifier {
+  background-color: rgba(255, 102, 204, 0.8);
+}
+
+.scroll-notifier:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInNotifier {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
