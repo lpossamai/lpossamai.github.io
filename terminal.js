@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="command-output">
             <h2>Contact Information</h2>
-            <p><strong>Email:</strong> <a href="mailto:lucas@lpossamai.me">lucas@lpossamai.me</a></p>
+            <p><strong>Email:</strong> <a href="mailto:root@lpossamai.me">root@lpossamai.me</a></p>
             <p><strong>Location:</strong> Auckland, New Zealand</p>
             <p>Feel free to reach out for project inquiries, collaboration opportunities, or just to say hello!</p>
         </div>
