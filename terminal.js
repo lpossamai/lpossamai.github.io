@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         historyIndex = commandHistory.length;
 
         // Add the command to output
-        addToOutput(`<span class="prompt">visitor@portfolio:~$</span> ${command}`);
+        addToOutput(`<span class="prompt">root@lpossamai.me:~$</span> ${command}`);
 
         // Process the command
         processCommand(command);
@@ -212,9 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <br>- <strong>experience</strong>: Show my work experience
             <br>- <strong>education</strong>: Show my educational background
             <br>- <strong>projects</strong>: View my projects
-            <br>- <strong>contact</strong>: Display contact information
+            <br>- <strong>contact</strong>: Get in touch with me
             <br>- <strong>social</strong>: Show my social media profiles
-            <br>- <strong>download</strong>: Download my resume
             <br>- <strong>clear</strong>: Clear the terminal
             <br>- <strong>theme</strong>: Change the terminal color theme
             <br>- <strong>mode</strong>: Toggle between dark and light mode
@@ -226,9 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="command-output">
             <h2>About Me</h2>
-            <p>Hi, I'm Lucas Possamai! I'm a Software Engineer with a passion for creating elegant solutions to complex problems.</p>
-            <p>I specialize in full-stack development with a focus on scalable architectures and user-centered design.</p>
-            <p>When not coding, I enjoy hiking, reading science fiction, and experimenting with new technologies.</p>
+            <p>Hi, I'm Lucas Possamai! I'm a DevOps/Platform Engineer with a passion for crafting elegant, scalable solutions to complex challenges.</p>
+            <p>Bootstrapping well-architected PCI-DSS and ISO/IEC 27001 compliant AWS Cloud environments, migrating workloads to AWS, and utilising Infrastructure as Code (IaC) for automated resource deployment. Designing, architecting, and building solutions. Assessing and automating AWS processes, enabling emerging technology projects, and fostering DevOps, and Agile practices. opportunities that challenge me to deliver scalable, secure, and efficient cloud solutions.</p>
+            <p>When I'm not optimizing cloud environments, you’ll find me gaming on my PS5, playing drums, or diving into science fiction novels. I’m also a motorsport enthusiast, often spotted at car shows or track days.</p>
             <p>Type 'skills' to see my technical expertise or 'projects' to view my portfolio.</p>
         </div>
       `;
@@ -239,24 +238,24 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="command-output">
             <h2>Technical Skills</h2>
             <div class="skill-category">
-                <h3>Programming Languages:</h3>
-                <p>JavaScript, TypeScript, Python, Java, Go, HTML5, CSS3, SQL</p>
+                <h3>Cloud Platforms:</h3>
+                <p>AWS, Azure</p>
             </div>
             <div class="skill-category">
-                <h3>Frontend:</h3>
-                <p>React, Vue.js, Angular, Redux, Webpack, Sass, Tailwind CSS</p>
+                <h3>DevOps Tools:</h3>
+                <p>Terraform, Ansible, Docker, Kubernetes, Jenkins, Gitlab CI/CD, GitHub Actions, Capistrano, Puppet, Terragrunt</p>
             </div>
             <div class="skill-category">
-                <h3>Backend:</h3>
-                <p>Node.js, Express, Django, Spring Boot, GraphQL</p>
+                <h3>Monitoring & Logging:</h3>
+                <p>Prometheus, Grafana, New Relic, ELK (Elasticsearch, Logstash, Kibana)</p>
             </div>
             <div class="skill-category">
                 <h3>Databases:</h3>
-                <p>MongoDB, PostgreSQL, MySQL, Redis, Firebase</p>
+                <p>PostgreSQL, MySQL, Oracle</p>
             </div>
             <div class="skill-category">
-                <h3>DevOps & Tools:</h3>
-                <p>Docker, Kubernetes, AWS, GCP, CI/CD, Git, GitHub Actions, Jest, Cypress</p>
+                <h3>Programming Languages:</h3>
+                <p>Python, SQL</p>
             </div>
         </div>
       `;
@@ -267,29 +266,93 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="command-output">
             <h2>Work Experience</h2>
             <div class="experience-item">
-                <h3>Senior Software Engineer | Tech Innovation Inc.</h3>
-                <p class="date">Jan 2020 - Present</p>
+                <h3>Senior Platform Infrastructure Engineer | Flo2Cash</h3>
+                <p class="date">April 2024 - Present</p>
                 <ul>
-                    <li>Lead development of microservices architecture serving 1M+ users</li>
-                    <li>Implemented CI/CD pipelines reducing deployment time by 40%</li>
-                    <li>Mentored junior developers and conducted code reviews</li>
+                    <li>Designed and deployed secure, scalable AWS infrastructure for payment systems, ensuring compliance with PCI-DSS and ISO 27001 standards.</li>
+                    <li>Automated infrastructure deployment using CloudFormation, Terraform, and AWS CDK, reducing deployment times and improving efficiency.</li>
+                    <li>Implemented monitoring and troubleshooting using Prometheus, Grafana, and ELK stack to ensure high availability and performance.</li>
                 </ul>
             </div>
             <div class="experience-item">
-                <h3>Full Stack Developer | Digital Solutions Ltd.</h3>
-                <p class="date">Mar 2017 - Dec 2019</p>
+                <h3>Senior DevOps Engineer | Flux Federation</h3>
+                <p class="date">July 2023 - December 2023</p>
                 <ul>
-                    <li>Built responsive web applications using React and Node.js</li>
-                    <li>Optimized database queries improving performance by 30%</li>
-                    <li>Collaborated with design team on UX improvements</li>
+                    <li>Designed, architected, and deployed secure, ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform, Terragrunt, Gitlab, and Capistrano.</li>
+                    <li>Automated infrastructure deployment processes, reducing manual intervention and improving deployment efficiency.</li>
+                    <li>Utilized monitoring tools like Prometheus, Grafana, New Relic, and ELK stack to ensure system performance and reliability.</li>
                 </ul>
             </div>
             <div class="experience-item">
-                <h3>Web Developer Intern | StartUp Hub</h3>
-                <p class="date">Jun 2016 - Feb 2017</p>
+                <h3>Senior DevSecOps Engineer | Glorious</h3>
+                <p class="date">April 2023 - July 2023</p>
                 <ul>
-                    <li>Developed features for e-commerce platform</li>
-                    <li>Created data visualization components</li>
+                    <li>Designed and deployed ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform and GitHub Actions.</li>
+                    <li>Automated infrastructure provisioning and deployment processes, improving efficiency and reducing manual errors.</li>
+                    <li>Collaborated with cross-functional teams to maintain and optimize cloud environments in a fully remote setting.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Senior DevOps Engineer | Leaven (Spark CCL)</h3>
+                <p class="date">August 2022 - April 2023</p>
+                <ul>
+                    <li>Architected and deployed ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform and Azure DevOps.</li>
+                    <li>Spearheaded the deployment of PCI-DSS-compliant Landing Zone accounts and Spoke networks, leveraging Azure DevOps, Terraform, and Docker.</li>
+                    <li>Dockerized core applications and deployed them to AWS ECS, enhancing scalability and reducing operational overhead.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Senior DevOps Engineer | Flux Federation</h3>
+                <p class="date">April 2022 - August 2022</p>
+                <ul>
+                    <li>Designed and deployed secure, ISO/IEC 27001, PCI-DSS, and CIS-compliant infrastructure on AWS using Terraform, Gitlab, and Capistrano.</li>
+                    <li>Implemented AWS Shield Advanced and AWS Global Accelerator to provide robust DDoS protection for critical applications.</li>
+                    <li>Automated infrastructure deployment processes, reducing manual intervention and improving operational efficiency.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Senior Cloud Engineer | Bank of New Zealand</h3>
+                <p class="date">October 2021 - April 2022</p>
+                <ul>
+                    <li>Architected and deployed a PCI-DSS compliant transaction monitoring solution on AWS EKS.</li>
+                    <li>Implemented AWS Shield Advanced and Global Accelerator for robust DDoS protection.</li>
+                    <li>Dockerized core applications and deployed them to AWS EKS, enhancing scalability and resource efficiency.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Senior AWS DevOps Engineer | GeoOp</h3>
+                <p class="date">April 2021 - October 2021</p>
+                <ul>
+                    <li>Migrated core PHP application to AWS ECS Fargate, improving scalability and reducing operational costs.</li>
+                    <li>Enhanced onboarding efficiency by 30% by mentoring junior DevOps engineers on cloud practices.</li>
+                    <li>Implemented AWS CloudFront, WAF, and Shield for enhanced DDoS protection and application scalability.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Senior Platform Engineer | RedShield</h3>
+                <p class="date">January 2021 - April 2021</p>
+                <ul>
+                    <li>Designed and implemented a secure, scalable PCI and ISO/IEC 27001-compliant AWS infrastructure using Terraform, AWS Global Accelerator, EKS, and Shield Advanced.</li>
+                    <li>Automated on-premises infrastructure management using Puppet and GitLab CI/CD pipelines.</li>
+                    <li>Conducted security incident response, including investigation and mitigation, to maintain infrastructure integrity.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Senior Cloud Engineer | Trade Me</h3>
+                <p class="date">January 2018 - January 2021</p>
+                <ul>
+                    <li>Led the migration of on-premises infrastructure to AWS with only 90 minutes of planned downtime.</li>
+                    <li>Automated deployment of PCI-DSS and CIS compliant AWS infrastructure using Ansible and Terraform.</li>
+                    <li>Implemented monitoring solutions with New Relic to ensure system reliability and performance.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>AWS Cloud Engineer | GeoOp</h3>
+                <p class="date">December 2015 - January 2018</p>
+                <ul>
+                    <li>Migrated entire platform from Rackspace to AWS Cloud with only 90 minutes of downtime.</li>
+                    <li>Migrated BLOB data from PostgreSQL to AWS S3, reducing database size from >5 TB to <800 GB and cutting costs by 40%.</li>
+                    <li>Documented best practices for development and deployment, ensuring consistency and compliance across the organization.</li>
                 </ul>
             </div>
         </div>
@@ -301,21 +364,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="command-output">
             <h2>Education</h2>
             <div class="education-item">
-                <h3>Master of Computer Science</h3>
-                <p>University of Technology | 2015 - 2017</p>
-                <p>Specialization in Software Engineering</p>
-            </div>
-            <div class="education-item">
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p>State University | 2011 - 2015</p>
-                <p>Minor in Mathematics</p>
+                <h3>Electronic Engineering</h3>
+                <p>Universidade de Caxias do Sul | 2012 - 2014</p>
             </div>
             <div class="education-item">
                 <h3>Certifications</h3>
                 <ul>
-                    <li>AWS Certified Solutions Architect</li>
-                    <li>Google Cloud Professional Data Engineer</li>
-                    <li>Certified Kubernetes Administrator</li>
+                    <li>AWS Certified Solutions Architect - Associate</li>
+                    <li>HashiCorp Certified: Terraform Associate</li>
                 </ul>
             </div>
         </div>
@@ -327,26 +383,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="command-output">
             <h2>Projects</h2>
             <div class="project-item">
-                <h3><a href="#" target="_blank">E-Commerce Platform</a></h3>
-                <p>A full-featured online shopping platform built with React, Node.js, and MongoDB.</p>
-                <p class="tech-stack">React | Node.js | Express | MongoDB | Stripe API</p>
+                <h3><a href="https://dev.to/lpossamai" target="_blank">Technical Blog</a></h3>
+                <p>Articles on cloud computing, DevOps practices, and infrastructure automation.</p>
+                <p class="tech-stack">AWS | DevOps | Cloud Security</p>
             </div>
-            <div class="project-item">
-                <h3><a href="#" target="_blank">Real-Time Analytics Dashboard</a></h3>
-                <p>Interactive dashboard for visualizing business metrics with real-time updates.</p>
-                <p class="tech-stack">Vue.js | D3.js | Socket.io | Express | PostgreSQL</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="#" target="_blank">AI-Powered Task Manager</a></h3>
-                <p>Task management application with AI-driven prioritization and scheduling.</p>
-                <p class="tech-stack">React | Python | Django | TensorFlow | PostgreSQL</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="#" target="_blank">Cloud Infrastructure Toolkit</a></h3>
-                <p>Open-source toolkit for automating cloud infrastructure deployment.</p>
-                <p class="tech-stack">Go | Terraform | AWS | Docker | GitHub Actions</p>
-            </div>
-            <p>View more on my <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+            <p>Explore my open-source contributions and personal projects on <a href="https://github.com/lpossamai" target="_blank">GitHub</a>.</p>
         </div>
       `;
     },
@@ -355,9 +396,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="command-output">
             <h2>Contact Information</h2>
-            <p><strong>Email:</strong> <a href="mailto:lucas@example.com">lucas@example.com</a></p>
-            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-            <p><strong>Location:</strong> San Francisco, CA</p>
+            <p><strong>Email:</strong> <a href="mailto:lucas@lpossamai.me">lucas@lpossamai.me</a></p>
+            <p><strong>Location:</strong> Auckland, New Zealand</p>
             <p>Feel free to reach out for project inquiries, collaboration opportunities, or just to say hello!</p>
         </div>
       `;
@@ -369,23 +409,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>Social Media & Profiles</h2>
             <ul class="social-links">
                 <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/lucaspossamai" target="_blank">linkedin.com/in/lucaspossamai</a></li>
-                <li><strong>GitHub:</strong> <a href="https://github.com/lucaspossamai" target="_blank">github.com/lucaspossamai</a></li>
-                <li><strong>Twitter:</strong> <a href="https://twitter.com/lucaspossamai" target="_blank">@lucaspossamai</a></li>
-                <li><strong>Dev.to:</strong> <a href="https://dev.to/lucaspossamai" target="_blank">dev.to/lucaspossamai</a></li>
-                <li><strong>Medium:</strong> <a href="https://medium.com/@lucaspossamai" target="_blank">@lucaspossamai</a></li>
-            </ul>
-        </div>
-      `;
-    },
-
-    download: function () {
-      return `
-        <div class="command-output">
-            <h2>Resume Download</h2>
-            <p>You can download my resume in the following formats:</p>
-            <ul class="download-links">
-                <li><a href="resume/lucas-possamai-resume.pdf" download>PDF Version</a></li>
-                <li><a href="resume/lucas-possamai-resume.docx" download>Word Document</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/lpossamai" target="_blank">github.com/lpossamai</a></li>
+                <li><strong>Dev.to:</strong> <a href="https://dev.to/lpossamai" target="_blank">dev.to/lpossamai</a></li>
             </ul>
         </div>
       `;
