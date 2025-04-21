@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="command-output">
             <h2>Work Experience</h2>
             <div class="experience-item">
-                <h3>Senior Platform Infrastructure Engineer | Flo2Cash</h3>
+                <h3>Senior Platform Engineer | Flo2Cash</h3>
                 <p class="date">April 2024 - Present</p>
                 <ul>
                     <li>Designed and deployed secure, scalable AWS infrastructure for payment systems, ensuring compliance with PCI-DSS and ISO 27001 standards.</li>
