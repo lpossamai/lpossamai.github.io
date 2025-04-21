@@ -153,45 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ensure the scroll happens after the DOM is updated and content is rendered
     setTimeout(() => {
-      // Check if scrolling is needed
-      const isScrollNeeded = terminalBody.scrollHeight > terminalBody.clientHeight;
-      const isNearBottom = terminalBody.scrollTop + terminalBody.clientHeight >= terminalBody.scrollHeight - 100;
-
-      // Only smooth scroll if we're already near the bottom or if the content isn't overflowing yet
-      if (isNearBottom || !isScrollNeeded) {
-        // Show scroll indicator
-        animateScrollIndicator();
-
-        // Smooth scroll to the bottom
-        terminalBody.scrollTo({
-          top: terminalBody.scrollHeight,
-          behavior: 'smooth'
-        });
-      } else {
-        // If we're scrolled up, show a notification without auto-scrolling
-        const scrollNotifier = document.createElement('div');
-        scrollNotifier.className = 'scroll-notifier';
-        scrollNotifier.textContent = 'New output below ↓';
-        scrollNotifier.onclick = () => {
-          terminalBody.scrollTo({
-            top: terminalBody.scrollHeight,
-            behavior: 'smooth'
-          });
-          scrollNotifier.remove();
-        };
-
-        // Add the notifier if it doesn't exist yet
-        if (!document.querySelector('.scroll-notifier')) {
-          terminalBody.appendChild(scrollNotifier);
-
-          // Auto-remove after 5 seconds
-          setTimeout(() => {
-            if (document.body.contains(scrollNotifier)) {
-              scrollNotifier.remove();
-            }
-          }, 5000);
-        }
-      }
+      // Always show scroll indicator and smoothly scroll to the bottom
+      animateScrollIndicator();
+      terminalBody.scrollTo({
+        top: terminalBody.scrollHeight,
+        behavior: 'smooth'
+      });
 
       // Remove the animation class after it completes
       setTimeout(() => {
@@ -227,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>About Me</h2>
             <p>Hi, I'm Lucas Possamai! I'm a DevOps/Platform Engineer with a passion for crafting elegant, scalable solutions to complex challenges.</p>
             <p>Bootstrapping well-architected PCI-DSS and ISO/IEC 27001 compliant AWS Cloud environments, migrating workloads to AWS, and utilising Infrastructure as Code (IaC) for automated resource deployment. Designing, architecting, and building solutions. Assessing and automating AWS processes, enabling emerging technology projects, and fostering DevOps, and Agile practices. opportunities that challenge me to deliver scalable, secure, and efficient cloud solutions.</p>
-            <p>When I'm not optimizing cloud environments, you’ll find me gaming on my PS5, playing drums, or diving into science fiction novels. I’m also a motorsport enthusiast, often spotted at car shows or track days.</p>
+            <p>When I'm not optimizing cloud environments, you'll find me gaming on my PS5, playing drums, or diving into science fiction novels. I'm also a motorsport enthusiast, often spotted at car shows or track days.</p>
             <p>Type 'skills' to see my technical expertise or 'projects' to view my portfolio.</p>
         </div>
       `;
