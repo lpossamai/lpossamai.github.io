@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="skill-category">
                 <h3>Programming Languages:</h3>
-                <p>Python, SQL</p>
+                <p>Bash, Python, SQL</p>
             </div>
         </div>
       `;
