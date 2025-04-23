@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <br>- <strong>help</strong>: Display available commands
             <br>- <strong>about</strong>: Display information about me
             <br>- <strong>skills</strong>: List my technical skills
-            <br>- <strong>experience</strong>: Show my work experience
+            <!-- <br>- <strong>experience</strong>: Show my work experience -->
             <br>- <strong>education</strong>: Show my educational background
             <br>- <strong>projects</strong>: View my projects
             <br>- <strong>contact</strong>: Get in touch with me
@@ -228,103 +228,103 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     },
 
-    experience: function () {
-      return `
-        <div class="command-output">
-            <h2>Work Experience</h2>
-            <div class="experience-item">
-                <h3>Senior Platform Engineer | Flo2Cash</h3>
-                <p class="date">April 2024 - Present</p>
-                <ul>
-                    <li>Designed and deployed secure, scalable AWS infrastructure for payment systems, ensuring compliance with PCI-DSS and ISO 27001 standards.</li>
-                    <li>Automated infrastructure deployment using CloudFormation, Terraform, and AWS CDK, reducing deployment times and improving efficiency.</li>
-                    <li>Implemented monitoring and troubleshooting using Prometheus, Grafana, and ELK stack to ensure high availability and performance.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior DevOps Engineer | Flux Federation</h3>
-                <p class="date">July 2023 - December 2023</p>
-                <ul>
-                    <li>Designed, architected, and deployed secure, ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform, Terragrunt, Gitlab, and Capistrano.</li>
-                    <li>Automated infrastructure deployment processes, reducing manual intervention and improving deployment efficiency.</li>
-                    <li>Utilized monitoring tools like Prometheus, Grafana, New Relic, and ELK stack to ensure system performance and reliability.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior DevSecOps Engineer | Glorious</h3>
-                <p class="date">April 2023 - July 2023</p>
-                <ul>
-                    <li>Designed and deployed ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform and GitHub Actions.</li>
-                    <li>Automated infrastructure provisioning and deployment processes, improving efficiency and reducing manual errors.</li>
-                    <li>Collaborated with cross-functional teams to maintain and optimize cloud environments in a fully remote setting.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior DevOps Engineer | Leaven (Spark CCL)</h3>
-                <p class="date">August 2022 - April 2023</p>
-                <ul>
-                    <li>Architected and deployed ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform and Azure DevOps.</li>
-                    <li>Spearheaded the deployment of PCI-DSS-compliant Landing Zone accounts and Spoke networks, leveraging Azure DevOps, Terraform, and Docker.</li>
-                    <li>Dockerized core applications and deployed them to AWS ECS, enhancing scalability and reducing operational overhead.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior DevOps Engineer | Flux Federation</h3>
-                <p class="date">April 2022 - August 2022</p>
-                <ul>
-                    <li>Designed and deployed secure, ISO/IEC 27001, PCI-DSS, and CIS-compliant infrastructure on AWS using Terraform, Gitlab, and Capistrano.</li>
-                    <li>Implemented AWS Shield Advanced and AWS Global Accelerator to provide robust DDoS protection for critical applications.</li>
-                    <li>Automated infrastructure deployment processes, reducing manual intervention and improving operational efficiency.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior Cloud Engineer | Bank of New Zealand</h3>
-                <p class="date">October 2021 - April 2022</p>
-                <ul>
-                    <li>Architected and deployed a PCI-DSS compliant transaction monitoring solution on AWS EKS.</li>
-                    <li>Implemented AWS Shield Advanced and Global Accelerator for robust DDoS protection.</li>
-                    <li>Dockerized core applications and deployed them to AWS EKS, enhancing scalability and resource efficiency.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior AWS DevOps Engineer | GeoOp</h3>
-                <p class="date">April 2021 - October 2021</p>
-                <ul>
-                    <li>Migrated core PHP application to AWS ECS Fargate, improving scalability and reducing operational costs.</li>
-                    <li>Enhanced onboarding efficiency by 30% by mentoring junior DevOps engineers on cloud practices.</li>
-                    <li>Implemented AWS CloudFront, WAF, and Shield for enhanced DDoS protection and application scalability.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior Platform Engineer | RedShield</h3>
-                <p class="date">January 2021 - April 2021</p>
-                <ul>
-                    <li>Designed and implemented a secure, scalable PCI and ISO/IEC 27001-compliant AWS infrastructure using Terraform, AWS Global Accelerator, EKS, and Shield Advanced.</li>
-                    <li>Automated on-premises infrastructure management using Puppet and GitLab CI/CD pipelines.</li>
-                    <li>Conducted security incident response, including investigation and mitigation, to maintain infrastructure integrity.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Senior Cloud Engineer | Trade Me</h3>
-                <p class="date">January 2018 - January 2021</p>
-                <ul>
-                    <li>Led the migration of on-premises infrastructure to AWS with only 90 minutes of planned downtime.</li>
-                    <li>Automated deployment of PCI-DSS and CIS compliant AWS infrastructure using Ansible and Terraform.</li>
-                    <li>Implemented monitoring solutions with New Relic to ensure system reliability and performance.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>AWS Cloud Engineer | GeoOp</h3>
-                <p class="date">December 2015 - January 2018</p>
-                <ul>
-                    <li>Migrated entire platform from Rackspace to AWS Cloud with only 90 minutes of downtime.</li>
-                    <li>Migrated BLOB data from PostgreSQL to AWS S3, reducing database size from >5 TB to <800 GB and cutting costs by 40%.</li>
-                    <li>Documented best practices for development and deployment, ensuring consistency and compliance across the organization.</li>
-                </ul>
-            </div>
-        </div>
-      `;
-    },
+    // experience: function () {
+    //   return `
+    //     <div class="command-output">
+    //         <h2>Work Experience</h2>
+    //         <div class="experience-item">
+    //             <h3>Senior Platform Engineer | Flo2Cash</h3>
+    //             <p class="date">April 2024 - Present</p>
+    //             <ul>
+    //                 <li>Designed and deployed secure, scalable AWS infrastructure for payment systems, ensuring compliance with PCI-DSS and ISO 27001 standards.</li>
+    //                 <li>Automated infrastructure deployment using CloudFormation, Terraform, and AWS CDK, reducing deployment times and improving efficiency.</li>
+    //                 <li>Implemented monitoring and troubleshooting using Prometheus, Grafana, and ELK stack to ensure high availability and performance.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior DevOps Engineer | Flux Federation</h3>
+    //             <p class="date">July 2023 - December 2023</p>
+    //             <ul>
+    //                 <li>Designed, architected, and deployed secure, ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform, Terragrunt, Gitlab, and Capistrano.</li>
+    //                 <li>Automated infrastructure deployment processes, reducing manual intervention and improving deployment efficiency.</li>
+    //                 <li>Utilized monitoring tools like Prometheus, Grafana, New Relic, and ELK stack to ensure system performance and reliability.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior DevSecOps Engineer | Glorious</h3>
+    //             <p class="date">April 2023 - July 2023</p>
+    //             <ul>
+    //                 <li>Designed and deployed ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform and GitHub Actions.</li>
+    //                 <li>Automated infrastructure provisioning and deployment processes, improving efficiency and reducing manual errors.</li>
+    //                 <li>Collaborated with cross-functional teams to maintain and optimize cloud environments in a fully remote setting.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior DevOps Engineer | Leaven (Spark CCL)</h3>
+    //             <p class="date">August 2022 - April 2023</p>
+    //             <ul>
+    //                 <li>Architected and deployed ISO/IEC 27001, PCI-DSS, and CIS-compliant applications and infrastructure on AWS using Terraform and Azure DevOps.</li>
+    //                 <li>Spearheaded the deployment of PCI-DSS-compliant Landing Zone accounts and Spoke networks, leveraging Azure DevOps, Terraform, and Docker.</li>
+    //                 <li>Dockerized core applications and deployed them to AWS ECS, enhancing scalability and reducing operational overhead.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior DevOps Engineer | Flux Federation</h3>
+    //             <p class="date">April 2022 - August 2022</p>
+    //             <ul>
+    //                 <li>Designed and deployed secure, ISO/IEC 27001, PCI-DSS, and CIS-compliant infrastructure on AWS using Terraform, Gitlab, and Capistrano.</li>
+    //                 <li>Implemented AWS Shield Advanced and AWS Global Accelerator to provide robust DDoS protection for critical applications.</li>
+    //                 <li>Automated infrastructure deployment processes, reducing manual intervention and improving operational efficiency.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior Cloud Engineer | Bank of New Zealand</h3>
+    //             <p class="date">October 2021 - April 2022</p>
+    //             <ul>
+    //                 <li>Architected and deployed a PCI-DSS compliant transaction monitoring solution on AWS EKS.</li>
+    //                 <li>Implemented AWS Shield Advanced and Global Accelerator for robust DDoS protection.</li>
+    //                 <li>Dockerized core applications and deployed them to AWS EKS, enhancing scalability and resource efficiency.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior AWS DevOps Engineer | GeoOp</h3>
+    //             <p class="date">April 2021 - October 2021</p>
+    //             <ul>
+    //                 <li>Migrated core PHP application to AWS ECS Fargate, improving scalability and reducing operational costs.</li>
+    //                 <li>Enhanced onboarding efficiency by 30% by mentoring junior DevOps engineers on cloud practices.</li>
+    //                 <li>Implemented AWS CloudFront, WAF, and Shield for enhanced DDoS protection and application scalability.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior Platform Engineer | RedShield</h3>
+    //             <p class="date">January 2021 - April 2021</p>
+    //             <ul>
+    //                 <li>Designed and implemented a secure, scalable PCI and ISO/IEC 27001-compliant AWS infrastructure using Terraform, AWS Global Accelerator, EKS, and Shield Advanced.</li>
+    //                 <li>Automated on-premises infrastructure management using Puppet and GitLab CI/CD pipelines.</li>
+    //                 <li>Conducted security incident response, including investigation and mitigation, to maintain infrastructure integrity.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>Senior Cloud Engineer | Trade Me</h3>
+    //             <p class="date">January 2018 - January 2021</p>
+    //             <ul>
+    //                 <li>Led the migration of on-premises infrastructure to AWS with only 90 minutes of planned downtime.</li>
+    //                 <li>Automated deployment of PCI-DSS and CIS compliant AWS infrastructure using Ansible and Terraform.</li>
+    //                 <li>Implemented monitoring solutions with New Relic to ensure system reliability and performance.</li>
+    //             </ul>
+    //         </div>
+    //         <div class="experience-item">
+    //             <h3>AWS Cloud Engineer | GeoOp</h3>
+    //             <p class="date">December 2015 - January 2018</p>
+    //             <ul>
+    //                 <li>Migrated entire platform from Rackspace to AWS Cloud with only 90 minutes of downtime.</li>
+    //                 <li>Migrated BLOB data from PostgreSQL to AWS S3, reducing database size from >5 TB to <800 GB and cutting costs by 40%.</li>
+    //                 <li>Documented best practices for development and deployment, ensuring consistency and compliance across the organization.</li>
+    //             </ul>
+    //         </div>
+    //     </div>
+    //   `;
+    // },
 
     education: function () {
       return `
