@@ -5,38 +5,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
-    <meta name="theme-color" content="#0c0c0c">
-    <meta name="description" content="Lucas Possamai's Terminal Portfolio - Interactive command-line portfolio website">
-    <title>Terminal Portfolio</title>
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description"
+        content="Lucas Possamai - DevOps/Platform Engineer specializing in AWS, Terraform, and cloud infrastructure">
+    <title>Lucas Possamai - DevOps Engineer</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Preload fonts -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/courierprime/v7/u-450q2lgwslOqpF_6gQ8kELWwZjW.woff2" as="font"
-        type="font/woff2" crossorigin>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="terminal-container">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#home">Lucas Possamai</a>
             </div>
-            <div class="terminal-title">terminal</div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon">🌙</span>
+                </button>
+            </div>
+            <div class="nav-mobile-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="terminal-body">
-            <div class="terminal-output" id="output">
-                <p class="intro-text">Welcome to my terminal portfolio. Type 'help' to see available commands.</p>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-greeting">Hi, I'm</span>
+                    <span class="hero-name">Lucas Possamai</span>
+                </h1>
+                <p class="hero-subtitle">DevOps/Platform Engineer</p>
+                <p class="hero-description">
+                    Passionate about crafting elegant, scalable solutions to complex challenges.
+                    Specializing in AWS cloud environments, Infrastructure as Code, and DevOps practices.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
             </div>
-            <div class="terminal-input-line">
-                <span class="prompt">root@lpossamai.me:~$</span>
-                <span class="input-container">
-                    <input type="text" id="terminal-input" autofocus>
-                    <span class="cursor"></span>
-                </span>
+            <div class="hero-visual">
+                <div class="hero-code-block">
+                    <div class="code-header">
+                        <span class="code-title">main.tf</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line"><span class="code-keyword">resource</span> <span
+                                class="code-string">"aws_instance"</span> <span class="code-string">"web"</span> {</div>
+                        <div class="code-line"> <span class="code-property">ami</span> = <span
+                                class="code-string">"ami-0c55b159cbfafe1d0"</span></div>
+                        <div class="code-line"> <span class="code-property">instance_type</span> = <span
+                                class="code-string">"t3.micro"</span></div>
+                        <div class="code-line">}</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a DevOps/Platform Engineer with a passion for crafting elegant, scalable solutions to
+                        complex challenges.
+                        I specialize in bootstrapping well-architected PCI-DSS and ISO/IEC 27001 compliant AWS Cloud
+                        environments,
+                        migrating workloads to AWS, and utilizing Infrastructure as Code (IaC) for automated resource
+                        deployment.
+                    </p>
+                    <p>
+                        My expertise includes designing, architecting, and building solutions, assessing and automating
+                        AWS processes,
+                        enabling emerging technology projects, and fostering DevOps and Agile practices. I thrive on
+                        opportunities
+                        that challenge me to deliver scalable, secure, and efficient cloud solutions.
+                    </p>
+                    <p>
+                        When I'm not optimizing cloud environments, you'll find me gaming on my PS5, playing drums, or
+                        diving into
+                        science fiction novels. I'm also a motorsport enthusiast, often spotted at car shows or track
+                        days.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>30%</h3>
+                        <p>Cloud Cost Reduction</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>90%</h3>
+                        <p>Manual Tasks Automated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>DevOps Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitLab CI/CD</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Terragrunt</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">📊</div>
+                    <h3>Monitoring & Logging</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">New Relic</span>
+                        <span class="skill-tag">ELK Stack</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Oracle</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🔒</div>
+                    <h3>Compliance</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PCI-DSS</span>
+                        <span class="skill-tag">ISO/IEC 27001</span>
+                        <span class="skill-tag">CIS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Technical Blog</h3>
+                        <div class="project-links">
+                            <a href="https://dev.to/lpossamai" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Articles on cloud computing, DevOps practices, and infrastructure automation.
+                        Sharing knowledge and best practices with the developer community.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">DevOps</span>
+                        <span class="tech-tag">Cloud Security</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Open Source Contributions</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/lpossamai" target="_blank" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Various open-source projects and contributions focusing on infrastructure automation,
+                        cloud security, and DevOps tooling.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-description">
+                        Feel free to reach out for project inquiries, collaboration opportunities, or just to say hello!
+                        I'm always interested in discussing new challenges and opportunities.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:lucas@lpossamai.me">lucas@lpossamai.me</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Auckland, New Zealand</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/lucaspossamai" target="_blank" class="social-link">
+                        <span class="social-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/lpossamai" target="_blank" class="social-link">
+                        <span class="social-icon">🐙</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://dev.to/lpossamai" target="_blank" class="social-link">
+                        <span class="social-icon">✍️</span>
+                        <span>Dev.to</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Lucas Possamai. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="terminal.js"></script>
 </body>
 
