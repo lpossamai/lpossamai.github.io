@@ -61,29 +61,13 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-code-block">
-                    <div class="code-header">
-                        <span class="code-title">main.tf</span>
-                    </div>
-                    <div class="code-content">
-                        <div class="code-line"><span class="code-keyword">resource</span> <span
-                                class="code-string">"aws_instance"</span> <span class="code-string">"web"</span> {</div>
-                        <div class="code-line"> <span class="code-property">ami</span> = <span
-                                class="code-string">"ami-0c55b159cbfafe1d0"</span></div>
-                        <div class="code-line"> <span class="code-property">instance_type</span> = <span
-                                class="code-string">"t3.micro"</span></div>
-                        <div class="code-line">}</div>
-                    </div>
-                </div>
-
-                <!-- Grafana-style Dashboard -->
                 <div class="hero-dashboard">
                     <div class="dashboard-header">
                         <div class="dashboard-title">
                             <span class="dashboard-icon">📊</span>
-                            <span>Infrastructure Monitoring</span>
+                            <span>Cloud Platform Health</span>
                         </div>
-                        <div class="dashboard-time">Last 24h</div>
+                        <div class="dashboard-time">Last 6h</div>
                     </div>
                     <div class="dashboard-grid">
                         <div class="dashboard-panel">
@@ -116,30 +100,8 @@
                         </div>
                         <div class="dashboard-panel">
                             <div class="panel-header">
-                                <h4>Network I/O</h4>
-                                <span class="panel-value">2.4MB/s</span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="area-chart">
-                                    <defs>
-                                        <linearGradient id="networkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.3" />
-                                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0" />
-                                        </linearGradient>
-                                    </defs>
-                                    <polygon
-                                        points="0,60 0,40 20,35 40,30 60,35 80,25 100,30 120,20 140,25 160,15 180,20 200,10 200,60"
-                                        fill="url(#networkGradient)" />
-                                    <polyline
-                                        points="0,40 20,35 40,30 60,35 80,25 100,30 120,20 140,25 160,15 180,20 200,10"
-                                        fill="none" stroke="#f59e0b" stroke-width="2" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>Response Time</h4>
-                                <span class="panel-value">145ms</span>
+                                <h4>API p99 Latency</h4>
+                                <span class="panel-value">120ms</span>
                             </div>
                             <div class="panel-chart">
                                 <svg viewBox="0 0 200 60" class="bar-chart">
@@ -166,6 +128,71 @@
                                         opacity="0.7" />
                                     <rect x="175" y="25" width="8" height="35" fill="var(--accent-primary)"
                                         opacity="0.8" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h4>API Errors</h4>
+                                <span class="panel-value">0.5%</span>
+                            </div>
+                            <div class="panel-chart">
+                                <svg viewBox="0 0 200 60" class="area-chart">
+                                    <defs>
+                                        <linearGradient id="apiErrorsGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.4" />
+                                            <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon
+                                        points="0,60 0,55 20,58 40,56 60,53 80,55 100,50 120,45 140,48 160,52 180,55 200,58 200,60"
+                                        fill="url(#apiErrorsGradient)" />
+                                    <polyline
+                                        points="0,55 20,58 40,56 60,53 80,55 100,50 120,45 140,48 160,52 180,55 200,58"
+                                        fill="none" stroke="#ef4444" stroke-width="2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h4>WAF Blocked</h4>
+                                <span class="panel-value">1,283</span>
+                            </div>
+                            <div class="panel-chart">
+                                <svg viewBox="0 0 200 60" class="bar-chart">
+                                    <g class="bar-group">
+                                        <rect x="10" y="30" width="12" height="30" fill="#f97316" opacity="0.8" />
+                                        <rect x="30" y="40" width="12" height="20" fill="#f97316" opacity="0.8" />
+                                        <rect x="50" y="20" width="12" height="40" fill="#f97316" opacity="0.8" />
+                                        <rect x="70" y="10" width="12" height="50" fill="#f97316" opacity="0.8" />
+                                        <rect x="90" y="25" width="12" height="35" fill="#f97316" opacity="0.8" />
+                                        <rect x="110" y="15" width="12" height="45" fill="#f97316" opacity="0.8" />
+                                        <rect x="130" y="35" width="12" height="25" fill="#f97316" opacity="0.8" />
+                                        <rect x="150" y="22" width="12" height="38" fill="#f97316" opacity="0.8" />
+                                        <rect x="170" y="45" width="12" height="15" fill="#f97316" opacity="0.8" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h4>Network I/O</h4>
+                                <span class="panel-value">2.4MB/s</span>
+                            </div>
+                            <div class="panel-chart">
+                                <svg viewBox="0 0 200 60" class="area-chart">
+                                    <defs>
+                                        <linearGradient id="networkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.3" />
+                                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon
+                                        points="0,60 0,40 20,35 40,30 60,35 80,25 100,30 120,20 140,25 160,15 180,20 200,10 200,60"
+                                        fill="url(#networkGradient)" />
+                                    <polyline
+                                        points="0,40 20,35 40,30 60,35 80,25 100,30 120,20 140,25 160,15 180,20 200,10"
+                                        fill="none" stroke="#f59e0b" stroke-width="2" />
                                 </svg>
                             </div>
                         </div>
