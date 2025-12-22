@@ -9,7 +9,7 @@
     <meta name="description"
         content="Lucas Possamai - DevOps/Platform Engineer specializing in AWS, Terraform, and cloud infrastructure">
     <title>Lucas Possamai</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,10 @@
                 <a href="#home">Lucas Possamai</a>
             </div>
             <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#blog" class="nav-link">Blog</a>
                 <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <span class="theme-toggle-icon">🌙</span>
@@ -249,6 +250,23 @@
         </div>
     </section>
 
+    <!-- Blog Section - Dev.to Feed -->
+    <section id="blog" class="blog section">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <p class="blog-subtitle">Fresh posts from my Dev.to blog</p>
+            <div class="blog-grid" id="devto-feed">
+                <div class="blog-loading">
+                    <span class="loading-spinner"></span>
+                    <span>Loading articles...</span>
+                </div>
+            </div>
+            <div class="blog-cta">
+                <a href="https://dev.to/lpossamai" target="_blank" class="btn btn-secondary">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="skills section">
         <div class="container">
@@ -314,87 +332,6 @@
                         <span class="skill-tag">ISO/IEC 27001</span>
                         <span class="skill-tag">CIS</span>
                         <span class="skill-tag">AWS Well-Architected Framework</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>AWS EC2 to ECS Migration Guide</h3>
-                        <div class="project-links">
-                            <a href="https://dev.to/lpossamai/smooth-sailing-from-aws-ec2-to-ecs-a-comprehensive-migration-guide-2dci"
-                                target="_blank" class="project-link">Read</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        A comprehensive guide covering the migration process from AWS EC2 instances to Amazon ECS,
-                        including best practices, containerization strategies, and deployment considerations.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">ECS</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Migration</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Terragrunt & Terraform Integration</h3>
-                        <div class="project-links">
-                            <a href="https://dev.to/lpossamai/seamless-cloud-infrastructure-integrating-terragrunt-and-terraform-with-aws-3pbb"
-                                target="_blank" class="project-link">Read</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Deep dive into integrating Terragrunt with Terraform for managing AWS infrastructure,
-                        covering advanced patterns for DRY configurations and multi-environment deployments.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Terragrunt</span>
-                        <span class="tech-tag">IaC</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Technical Blog</h3>
-                        <div class="project-links">
-                            <a href="https://dev.to/lpossamai" target="_blank" class="project-link">View</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Articles on cloud computing, DevOps practices, and infrastructure automation.
-                        Sharing knowledge and best practices with the developer community.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">DevOps</span>
-                        <span class="tech-tag">Cloud Security</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Open Source Contributions</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/lpossamai" target="_blank" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Various open-source projects and contributions focusing on infrastructure automation,
-                        cloud security, and DevOps tooling.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Automation</span>
                     </div>
                 </div>
             </div>

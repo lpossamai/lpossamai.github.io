@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize animations on scroll
   initializeScrollAnimations();
+
+  // Initialize Dev.to blog feed
+  initializeDevToFeed();
 });
 
 /* ===== THEME FUNCTIONALITY ===== */
@@ -337,3 +340,108 @@ function showNotification(message, type = 'info') {
 
 // Initialize contact form when DOM is ready
 document.addEventListener('DOMContentLoaded', initializeContactForm);
+
+/* ===== DEV.TO BLOG FEED ===== */
+
+const DEVTO_USERNAME = 'lpossamai';
+const DEVTO_API_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=6`;
+
+async function initializeDevToFeed() {
+  const feedContainer = document.getElementById('devto-feed');
+  if (!feedContainer) return;
+
+  try {
+    const response = await fetch(DEVTO_API_URL);
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch articles');
+    }
+
+    const articles = await response.json();
+
+    if (articles.length === 0) {
+      feedContainer.innerHTML = `
+        <div class="blog-error">
+          <p>No articles found. Check back soon!</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Render articles
+    feedContainer.innerHTML = articles.map(article => createArticleCard(article)).join('');
+
+  } catch (error) {
+    console.error('Error fetching Dev.to articles:', error);
+    feedContainer.innerHTML = `
+      <div class="blog-error">
+        <p>Unable to load articles right now.</p>
+        <a href="https://dev.to/${DEVTO_USERNAME}" target="_blank" class="btn btn-secondary" style="margin-top: 1rem;">
+          Visit Dev.to Profile
+        </a>
+      </div>
+    `;
+  }
+}
+
+function createArticleCard(article) {
+  const publishedDate = new Date(article.published_at).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+
+  const coverImage = article.cover_image || article.social_image;
+  const imageHtml = coverImage
+    ? `<img src="${coverImage}" alt="${escapeHtml(article.title)}" class="blog-card-image" loading="lazy">`
+    : `<div class="blog-card-placeholder">📝</div>`;
+
+  const readingTime = article.reading_time_minutes || 1;
+  const reactions = article.positive_reactions_count || 0;
+  const comments = article.comments_count || 0;
+
+  // Strip HTML and truncate description
+  const excerpt = article.description
+    ? escapeHtml(article.description).substring(0, 150) + (article.description.length > 150 ? '...' : '')
+    : 'Click to read more...';
+
+  return `
+    <article class="blog-card">
+      <a href="${article.url}" target="_blank" rel="noopener noreferrer">
+        ${imageHtml}
+      </a>
+      <div class="blog-card-content">
+        <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="blog-card-title">
+          ${escapeHtml(article.title)}
+        </a>
+        <p class="blog-card-excerpt">${excerpt}</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">
+            <span>📅</span>
+            <span>${publishedDate}</span>
+          </span>
+          <div class="blog-card-stats">
+            <span class="blog-card-stat" title="Reactions">
+              <span>❤️</span>
+              <span>${reactions}</span>
+            </span>
+            <span class="blog-card-stat" title="Comments">
+              <span>💬</span>
+              <span>${comments}</span>
+            </span>
+            <span class="blog-card-stat" title="Reading time">
+              <span>⏱️</span>
+              <span>${readingTime} min</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
