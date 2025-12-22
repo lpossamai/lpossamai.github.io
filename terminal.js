@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize mobile menu
   initializeMobileMenu();
 
+  // Initialize bottom navigation (mobile)
+  initializeBottomNav();
+
   // Initialize smooth scrolling
   initializeSmoothScrolling();
 
@@ -22,14 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ===== THEME FUNCTIONALITY ===== */
 function initializeTheme() {
   const themeToggle = document.getElementById('theme-toggle');
+  const bottomThemeToggle = document.getElementById('bottom-theme-toggle');
   const themeIcon = document.querySelector('.theme-toggle-icon');
+  const bottomThemeIcon = document.getElementById('bottom-theme-icon');
 
-  // Check for saved theme preference or default to light mode
+  // Check for saved theme preference or default to dark mode
   const savedTheme = localStorage.getItem('theme') || 'dark';
   setTheme(savedTheme);
 
-  // Theme toggle event listener
+  // Theme toggle event listener (desktop)
   themeToggle?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+
+  // Theme toggle event listener (mobile bottom nav)
+  bottomThemeToggle?.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
@@ -39,9 +51,14 @@ function initializeTheme() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
-    // Update theme toggle icon
+    // Update desktop theme toggle icon
     if (themeIcon) {
       themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Update bottom nav theme toggle icon
+    if (bottomThemeIcon) {
+      bottomThemeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
 
     // Update theme-color meta tag
@@ -116,6 +133,65 @@ function initializeMobileMenu() {
       mobileToggle?.classList.remove('nav-mobile-toggle--open');
     }
   });
+}
+
+/* ===== BOTTOM NAVIGATION (Mobile) ===== */
+function initializeBottomNav() {
+  const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+  const sections = document.querySelectorAll('section[id]');
+
+  // Smooth scroll for bottom nav items
+  bottomNavItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 60;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+
+      // Update active state immediately for better UX feedback
+      bottomNavItems.forEach(navItem => navItem.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+  // Update active state on scroll
+  const updateActiveNavItem = () => {
+    const scrollPosition = window.scrollY + 150;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        bottomNavItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.getAttribute('data-section') === sectionId) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+
+  // Throttled scroll listener for performance
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(updateActiveNavItem);
+  });
+
+  // Initial active state
+  updateActiveNavItem();
 }
 
 /* ===== SMOOTH SCROLLING ===== */
@@ -296,8 +372,14 @@ function trackInteraction(category, action, label = '') {
 // Initialize analytics
 trackPageView();
 
-// Track theme toggle
+// Track theme toggle (desktop)
 document.getElementById('theme-toggle')?.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  trackInteraction('Theme', 'Toggle', currentTheme);
+});
+
+// Track theme toggle (mobile bottom nav)
+document.getElementById('bottom-theme-toggle')?.addEventListener('click', () => {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   trackInteraction('Theme', 'Toggle', currentTheme);
 });
