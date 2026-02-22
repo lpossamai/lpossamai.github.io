@@ -498,6 +498,17 @@ a:hover {
   color: var(--text-primary);
 }
 
+.panel-unit {
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 1px;
+}
+
+.panel-value-green {
+  color: #10b981;
+}
+
 .panel-chart {
   height: 60px;
   position: relative;

@@ -7,7 +7,7 @@
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#0f172a">
     <meta name="description"
-        content="Lucas Possamai - DevOps/Platform Engineer specializing in AWS, Terraform, and cloud infrastructure">
+        content="Lucas Possamai - Platform Engineer & AI practitioner building production RAG pipelines, LLM-powered systems, and multi-cloud infrastructure">
     <title>Lucas Possamai</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
@@ -51,10 +51,11 @@
                     <span class="hero-greeting">Hi, I'm</span>
                     <span class="hero-name">Lucas Possamai</span>
                 </h1>
-                <p class="hero-subtitle">DevOps/Platform Engineer</p>
+                <p class="hero-subtitle">Platform Engineer & AI Builder</p>
                 <p class="hero-description">
-                    Passionate about crafting elegant, scalable solutions to complex challenges.
-                    Specializing in AWS cloud environments, Infrastructure as Code, and DevOps practices.
+                    I build production RAG pipelines, architect LLM-powered platforms, and engineer
+                    the multi-cloud infrastructure that runs them. From vector embeddings to Terraform
+                    modules, I ship AI systems that scale.
                 </p>
                 <div class="hero-buttons">
                     <a href="#about" class="btn btn-primary">Learn More</a>
@@ -65,135 +66,155 @@
                 <div class="hero-dashboard">
                     <div class="dashboard-header">
                         <div class="dashboard-title">
-                            <span class="dashboard-icon">📊</span>
-                            <span>Cloud Platform Health</span>
+                            <span class="dashboard-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 1L2 4.5V11.5L8 15L14 11.5V4.5L8 1Z" stroke="var(--accent-primary)" stroke-width="1.5" fill="none"/>
+                                    <circle cx="8" cy="8" r="2" fill="var(--accent-primary)" opacity="0.8"/>
+                                    <path d="M8 6V3M10 8H13M8 10V13M6 8H3" stroke="var(--accent-primary)" stroke-width="1" opacity="0.5"/>
+                                </svg>
+                            </span>
+                            <span>AI & Cloud Operations</span>
                         </div>
-                        <div class="dashboard-time">Last 6h</div>
+                        <div class="dashboard-time">Live</div>
                     </div>
                     <div class="dashboard-grid">
+                        <!-- Row 1: AI / RAG Metrics -->
                         <div class="dashboard-panel">
                             <div class="panel-header">
-                                <h4>CPU Usage</h4>
-                                <span class="panel-value">72%</span>
+                                <h4>RAG Queries</h4>
+                                <span class="panel-value">2.8K<span class="panel-unit">/h</span></span>
                             </div>
                             <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="line-chart">
+                                <svg viewBox="0 0 200 60" class="area-chart">
+                                    <defs>
+                                        <linearGradient id="ragGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:var(--accent-primary);stop-opacity:0.3" />
+                                            <stop offset="100%" style="stop-color:var(--accent-primary);stop-opacity:0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon
+                                        points="0,60 0,50 20,45 40,42 60,38 80,35 100,30 120,28 140,22 160,18 180,14 200,10 200,60"
+                                        fill="url(#ragGradient)" />
                                     <polyline
-                                        points="0,45 20,40 40,35 60,30 80,25 100,20 120,25 140,30 160,25 180,20 200,15"
+                                        points="0,50 20,45 40,42 60,38 80,35 100,30 120,28 140,22 160,18 180,14 200,10"
                                         fill="none" stroke="var(--accent-primary)" stroke-width="2" />
-                                    <circle cx="200" cy="15" r="3" fill="var(--accent-primary)" />
+                                    <circle cx="200" cy="10" r="3" fill="var(--accent-primary)">
+                                        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+                                    </circle>
                                 </svg>
                             </div>
                         </div>
                         <div class="dashboard-panel">
                             <div class="panel-header">
-                                <h4>Memory</h4>
-                                <span class="panel-value">64%</span>
+                                <h4>Vector Store</h4>
+                                <span class="panel-value">1.2M</span>
                             </div>
                             <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="line-chart">
+                                <svg viewBox="0 0 200 60" class="bar-chart">
+                                    <rect x="8" y="42" width="10" height="18" fill="#8b5cf6" opacity="0.5" rx="1" />
+                                    <rect x="24" y="38" width="10" height="22" fill="#8b5cf6" opacity="0.55" rx="1" />
+                                    <rect x="40" y="34" width="10" height="26" fill="#8b5cf6" opacity="0.6" rx="1" />
+                                    <rect x="56" y="30" width="10" height="30" fill="#8b5cf6" opacity="0.65" rx="1" />
+                                    <rect x="72" y="26" width="10" height="34" fill="#8b5cf6" opacity="0.7" rx="1" />
+                                    <rect x="88" y="22" width="10" height="38" fill="#8b5cf6" opacity="0.75" rx="1" />
+                                    <rect x="104" y="20" width="10" height="40" fill="#8b5cf6" opacity="0.8" rx="1" />
+                                    <rect x="120" y="16" width="10" height="44" fill="#8b5cf6" opacity="0.85" rx="1" />
+                                    <rect x="136" y="12" width="10" height="48" fill="#8b5cf6" opacity="0.9" rx="1" />
+                                    <rect x="152" y="10" width="10" height="50" fill="#8b5cf6" opacity="0.95" rx="1" />
+                                    <rect x="168" y="6" width="10" height="54" fill="#8b5cf6" rx="1" />
+                                    <rect x="184" y="3" width="10" height="57" fill="#8b5cf6" rx="1">
+                                        <animate attributeName="opacity" values="1;0.7;1" dur="3s" repeatCount="indefinite" />
+                                    </rect>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h4>LLM Latency</h4>
+                                <span class="panel-value">1.2<span class="panel-unit">s p95</span></span>
+                            </div>
+                            <div class="panel-chart">
+                                <svg viewBox="0 0 200 60" class="bar-chart">
+                                    <rect x="10" y="20" width="8" height="40" fill="#10b981" opacity="0.8" rx="1" />
+                                    <rect x="25" y="25" width="8" height="35" fill="#10b981" opacity="0.7" rx="1" />
+                                    <rect x="40" y="18" width="8" height="42" fill="#10b981" opacity="0.85" rx="1" />
+                                    <rect x="55" y="22" width="8" height="38" fill="#10b981" opacity="0.75" rx="1" />
+                                    <rect x="70" y="15" width="8" height="45" fill="#10b981" opacity="0.9" rx="1" />
+                                    <rect x="85" y="28" width="8" height="32" fill="#10b981" opacity="0.65" rx="1" />
+                                    <rect x="100" y="20" width="8" height="40" fill="#10b981" opacity="0.8" rx="1" />
+                                    <rect x="115" y="24" width="8" height="36" fill="#10b981" opacity="0.72" rx="1" />
+                                    <rect x="130" y="18" width="8" height="42" fill="#10b981" opacity="0.85" rx="1" />
+                                    <rect x="145" y="22" width="8" height="38" fill="#10b981" opacity="0.75" rx="1" />
+                                    <rect x="160" y="26" width="8" height="34" fill="#10b981" opacity="0.68" rx="1" />
+                                    <rect x="175" y="20" width="8" height="40" fill="#10b981" opacity="0.8" rx="1" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Row 2: Infrastructure Metrics -->
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h4>Uptime</h4>
+                                <span class="panel-value panel-value-green">99.97%</span>
+                            </div>
+                            <div class="panel-chart">
+                                <svg viewBox="0 0 200 60" class="area-chart">
+                                    <defs>
+                                        <linearGradient id="uptimeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.25" />
+                                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon
+                                        points="0,60 0,8 20,9 40,8 60,10 80,8 100,9 120,8 140,9 160,8 180,10 200,8 200,60"
+                                        fill="url(#uptimeGradient)" />
                                     <polyline
-                                        points="0,50 20,48 40,45 60,42 80,40 100,38 120,40 140,42 160,40 180,38 200,35"
+                                        points="0,8 20,9 40,8 60,10 80,8 100,9 120,8 140,9 160,8 180,10 200,8"
                                         fill="none" stroke="#10b981" stroke-width="2" />
-                                    <circle cx="200" cy="35" r="3" fill="#10b981" />
                                 </svg>
                             </div>
                         </div>
                         <div class="dashboard-panel">
                             <div class="panel-header">
-                                <h4>API p99 Latency</h4>
-                                <span class="panel-value">120ms</span>
+                                <h4>API p99</h4>
+                                <span class="panel-value">120<span class="panel-unit">ms</span></span>
                             </div>
                             <div class="panel-chart">
                                 <svg viewBox="0 0 200 60" class="bar-chart">
-                                    <rect x="10" y="40" width="8" height="20" fill="var(--accent-primary)"
-                                        opacity="0.7" />
-                                    <rect x="25" y="35" width="8" height="25" fill="var(--accent-primary)"
-                                        opacity="0.7" />
-                                    <rect x="40" y="30" width="8" height="30" fill="var(--accent-primary)"
-                                        opacity="0.7" />
-                                    <rect x="55" y="25" width="8" height="35" fill="var(--accent-primary)"
-                                        opacity="0.8" />
-                                    <rect x="70" y="20" width="8" height="40" fill="var(--accent-primary)"
-                                        opacity="0.8" />
-                                    <rect x="85" y="15" width="8" height="45" fill="var(--accent-primary)" />
-                                    <rect x="100" y="20" width="8" height="40" fill="var(--accent-primary)"
-                                        opacity="0.8" />
-                                    <rect x="115" y="25" width="8" height="35" fill="var(--accent-primary)"
-                                        opacity="0.8" />
-                                    <rect x="130" y="30" width="8" height="30" fill="var(--accent-primary)"
-                                        opacity="0.7" />
-                                    <rect x="145" y="35" width="8" height="25" fill="var(--accent-primary)"
-                                        opacity="0.7" />
-                                    <rect x="160" y="30" width="8" height="30" fill="var(--accent-primary)"
-                                        opacity="0.7" />
-                                    <rect x="175" y="25" width="8" height="35" fill="var(--accent-primary)"
-                                        opacity="0.8" />
+                                    <rect x="10" y="35" width="8" height="25" fill="var(--accent-primary)" opacity="0.6" rx="1" />
+                                    <rect x="25" y="30" width="8" height="30" fill="var(--accent-primary)" opacity="0.65" rx="1" />
+                                    <rect x="40" y="25" width="8" height="35" fill="var(--accent-primary)" opacity="0.7" rx="1" />
+                                    <rect x="55" y="28" width="8" height="32" fill="var(--accent-primary)" opacity="0.68" rx="1" />
+                                    <rect x="70" y="22" width="8" height="38" fill="var(--accent-primary)" opacity="0.75" rx="1" />
+                                    <rect x="85" y="18" width="8" height="42" fill="var(--accent-primary)" opacity="0.8" rx="1" />
+                                    <rect x="100" y="22" width="8" height="38" fill="var(--accent-primary)" opacity="0.75" rx="1" />
+                                    <rect x="115" y="28" width="8" height="32" fill="var(--accent-primary)" opacity="0.68" rx="1" />
+                                    <rect x="130" y="32" width="8" height="28" fill="var(--accent-primary)" opacity="0.62" rx="1" />
+                                    <rect x="145" y="30" width="8" height="30" fill="var(--accent-primary)" opacity="0.65" rx="1" />
+                                    <rect x="160" y="25" width="8" height="35" fill="var(--accent-primary)" opacity="0.7" rx="1" />
+                                    <rect x="175" y="28" width="8" height="32" fill="var(--accent-primary)" opacity="0.68" rx="1" />
                                 </svg>
                             </div>
                         </div>
                         <div class="dashboard-panel">
                             <div class="panel-header">
-                                <h4>API Errors</h4>
-                                <span class="panel-value">0.5%</span>
+                                <h4>Infra Cost</h4>
+                                <span class="panel-value panel-value-green">-31%</span>
                             </div>
                             <div class="panel-chart">
                                 <svg viewBox="0 0 200 60" class="area-chart">
                                     <defs>
-                                        <linearGradient id="apiErrorsGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.4" />
-                                            <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0" />
+                                        <linearGradient id="costGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3" />
+                                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
                                         </linearGradient>
                                     </defs>
                                     <polygon
-                                        points="0,60 0,55 20,58 40,56 60,53 80,55 100,50 120,45 140,48 160,52 180,55 200,58 200,60"
-                                        fill="url(#apiErrorsGradient)" />
+                                        points="0,60 0,15 20,18 40,22 60,20 80,25 100,28 120,32 140,35 160,38 180,42 200,48 200,60"
+                                        fill="url(#costGradient)" />
                                     <polyline
-                                        points="0,55 20,58 40,56 60,53 80,55 100,50 120,45 140,48 160,52 180,55 200,58"
-                                        fill="none" stroke="#ef4444" stroke-width="2" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>WAF Blocked</h4>
-                                <span class="panel-value">1,283</span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="bar-chart">
-                                    <g class="bar-group">
-                                        <rect x="10" y="30" width="12" height="30" fill="#f97316" opacity="0.8" />
-                                        <rect x="30" y="40" width="12" height="20" fill="#f97316" opacity="0.8" />
-                                        <rect x="50" y="20" width="12" height="40" fill="#f97316" opacity="0.8" />
-                                        <rect x="70" y="10" width="12" height="50" fill="#f97316" opacity="0.8" />
-                                        <rect x="90" y="25" width="12" height="35" fill="#f97316" opacity="0.8" />
-                                        <rect x="110" y="15" width="12" height="45" fill="#f97316" opacity="0.8" />
-                                        <rect x="130" y="35" width="12" height="25" fill="#f97316" opacity="0.8" />
-                                        <rect x="150" y="22" width="12" height="38" fill="#f97316" opacity="0.8" />
-                                        <rect x="170" y="45" width="12" height="15" fill="#f97316" opacity="0.8" />
-                                    </g>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>Network I/O</h4>
-                                <span class="panel-value">2.4MB/s</span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="area-chart">
-                                    <defs>
-                                        <linearGradient id="networkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.3" />
-                                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0" />
-                                        </linearGradient>
-                                    </defs>
-                                    <polygon
-                                        points="0,60 0,40 20,35 40,30 60,35 80,25 100,30 120,20 140,25 160,15 180,20 200,10 200,60"
-                                        fill="url(#networkGradient)" />
-                                    <polyline
-                                        points="0,40 20,35 40,30 60,35 80,25 100,30 120,20 140,25 160,15 180,20 200,10"
-                                        fill="none" stroke="#f59e0b" stroke-width="2" />
+                                        points="0,15 20,18 40,22 60,20 80,25 100,28 120,32 140,35 160,38 180,42 200,48"
+                                        fill="none" stroke="#10b981" stroke-width="2" />
+                                    <circle cx="200" cy="48" r="3" fill="#10b981" />
                                 </svg>
                             </div>
                         </div>
