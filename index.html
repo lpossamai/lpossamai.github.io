@@ -5,453 +5,421 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#000000">
     <meta name="description"
-        content="Lucas Possamai - Platform Engineer & AI practitioner building production RAG pipelines, LLM-powered systems, and multi-cloud infrastructure">
-    <title>Lucas Possamai</title>
+        content="Lucas Possamai - senior platform engineer building secure cloud platforms, AI infrastructure, RAG systems, and compliance-ready automation.">
+    <title>Lucas Possamai | Platform Engineer</title>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000000'/%3E%3Cpath d='M12 16h40v32H12z' fill='none' stroke='%2300ff66' stroke-width='4'/%3E%3Cpath d='M20 28l8 6-8 6M32 42h14' fill='none' stroke='%23ffbd2e' stroke-width='4' stroke-linecap='square'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary navigation">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="#home">Lucas Possamai</a>
+                <a href="#home" aria-label="Lucas Possamai home">LP</a>
             </div>
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#blog" class="nav-link">Blog</a>
-                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#about" class="nav-link">Profile</a>
+                <a href="#skills" class="nav-link">Systems</a>
+                <a href="#blog" class="nav-link">Writing</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <span class="theme-toggle-icon">🌙</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme, current theme dark">
+                    <span class="theme-toggle-label">Theme -</span>
+                    <span class="theme-toggle-state">DARK</span>
+                    <span class="theme-toggle-icon" aria-hidden="true">☾</span>
                 </button>
             </div>
-            <div class="nav-mobile-toggle" id="nav-toggle">
+            <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-greeting">Hi, I'm</span>
-                    <span class="hero-name">Lucas Possamai</span>
-                </h1>
-                <p class="hero-subtitle">Platform Engineer & AI Builder</p>
-                <p class="hero-description">
-                    I build production RAG pipelines, architect LLM-powered platforms, and engineer
-                    the multi-cloud infrastructure that runs them. From vector embeddings to Terraform
-                    modules, I ship AI systems that scale.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Learn More</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-dashboard">
-                    <div class="dashboard-header">
-                        <div class="dashboard-title">
-                            <span class="dashboard-icon">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 1L2 4.5V11.5L8 15L14 11.5V4.5L8 1Z" stroke="var(--accent-primary)" stroke-width="1.5" fill="none"/>
-                                    <circle cx="8" cy="8" r="2" fill="var(--accent-primary)" opacity="0.8"/>
-                                    <path d="M8 6V3M10 8H13M8 10V13M6 8H3" stroke="var(--accent-primary)" stroke-width="1" opacity="0.5"/>
-                                </svg>
-                            </span>
-                            <span>AI & Cloud Operations</span>
-                        </div>
-                        <div class="dashboard-time">Live</div>
-                    </div>
-                    <div class="dashboard-grid">
-                        <!-- Row 1: AI / RAG Metrics -->
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>RAG Queries</h4>
-                                <span class="panel-value">2.8K<span class="panel-unit">/h</span></span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="area-chart">
-                                    <defs>
-                                        <linearGradient id="ragGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:var(--accent-primary);stop-opacity:0.3" />
-                                            <stop offset="100%" style="stop-color:var(--accent-primary);stop-opacity:0" />
-                                        </linearGradient>
-                                    </defs>
-                                    <polygon
-                                        points="0,60 0,50 20,45 40,42 60,38 80,35 100,30 120,28 140,22 160,18 180,14 200,10 200,60"
-                                        fill="url(#ragGradient)" />
-                                    <polyline
-                                        points="0,50 20,45 40,42 60,38 80,35 100,30 120,28 140,22 160,18 180,14 200,10"
-                                        fill="none" stroke="var(--accent-primary)" stroke-width="2" />
-                                    <circle cx="200" cy="10" r="3" fill="var(--accent-primary)">
-                                        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
-                                    </circle>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>Vector Store</h4>
-                                <span class="panel-value">1.2M</span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="bar-chart">
-                                    <rect x="8" y="42" width="10" height="18" fill="#8b5cf6" opacity="0.5" rx="1" />
-                                    <rect x="24" y="38" width="10" height="22" fill="#8b5cf6" opacity="0.55" rx="1" />
-                                    <rect x="40" y="34" width="10" height="26" fill="#8b5cf6" opacity="0.6" rx="1" />
-                                    <rect x="56" y="30" width="10" height="30" fill="#8b5cf6" opacity="0.65" rx="1" />
-                                    <rect x="72" y="26" width="10" height="34" fill="#8b5cf6" opacity="0.7" rx="1" />
-                                    <rect x="88" y="22" width="10" height="38" fill="#8b5cf6" opacity="0.75" rx="1" />
-                                    <rect x="104" y="20" width="10" height="40" fill="#8b5cf6" opacity="0.8" rx="1" />
-                                    <rect x="120" y="16" width="10" height="44" fill="#8b5cf6" opacity="0.85" rx="1" />
-                                    <rect x="136" y="12" width="10" height="48" fill="#8b5cf6" opacity="0.9" rx="1" />
-                                    <rect x="152" y="10" width="10" height="50" fill="#8b5cf6" opacity="0.95" rx="1" />
-                                    <rect x="168" y="6" width="10" height="54" fill="#8b5cf6" rx="1" />
-                                    <rect x="184" y="3" width="10" height="57" fill="#8b5cf6" rx="1">
-                                        <animate attributeName="opacity" values="1;0.7;1" dur="3s" repeatCount="indefinite" />
-                                    </rect>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>LLM Latency</h4>
-                                <span class="panel-value">1.2<span class="panel-unit">s p95</span></span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="bar-chart">
-                                    <rect x="10" y="20" width="8" height="40" fill="#10b981" opacity="0.8" rx="1" />
-                                    <rect x="25" y="25" width="8" height="35" fill="#10b981" opacity="0.7" rx="1" />
-                                    <rect x="40" y="18" width="8" height="42" fill="#10b981" opacity="0.85" rx="1" />
-                                    <rect x="55" y="22" width="8" height="38" fill="#10b981" opacity="0.75" rx="1" />
-                                    <rect x="70" y="15" width="8" height="45" fill="#10b981" opacity="0.9" rx="1" />
-                                    <rect x="85" y="28" width="8" height="32" fill="#10b981" opacity="0.65" rx="1" />
-                                    <rect x="100" y="20" width="8" height="40" fill="#10b981" opacity="0.8" rx="1" />
-                                    <rect x="115" y="24" width="8" height="36" fill="#10b981" opacity="0.72" rx="1" />
-                                    <rect x="130" y="18" width="8" height="42" fill="#10b981" opacity="0.85" rx="1" />
-                                    <rect x="145" y="22" width="8" height="38" fill="#10b981" opacity="0.75" rx="1" />
-                                    <rect x="160" y="26" width="8" height="34" fill="#10b981" opacity="0.68" rx="1" />
-                                    <rect x="175" y="20" width="8" height="40" fill="#10b981" opacity="0.8" rx="1" />
-                                </svg>
-                            </div>
-                        </div>
-                        <!-- Row 2: Infrastructure Metrics -->
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>Uptime</h4>
-                                <span class="panel-value panel-value-green">99.97%</span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="area-chart">
-                                    <defs>
-                                        <linearGradient id="uptimeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.25" />
-                                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
-                                        </linearGradient>
-                                    </defs>
-                                    <polygon
-                                        points="0,60 0,8 20,9 40,8 60,10 80,8 100,9 120,8 140,9 160,8 180,10 200,8 200,60"
-                                        fill="url(#uptimeGradient)" />
-                                    <polyline
-                                        points="0,8 20,9 40,8 60,10 80,8 100,9 120,8 140,9 160,8 180,10 200,8"
-                                        fill="none" stroke="#10b981" stroke-width="2" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>API p99</h4>
-                                <span class="panel-value">120<span class="panel-unit">ms</span></span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="bar-chart">
-                                    <rect x="10" y="35" width="8" height="25" fill="var(--accent-primary)" opacity="0.6" rx="1" />
-                                    <rect x="25" y="30" width="8" height="30" fill="var(--accent-primary)" opacity="0.65" rx="1" />
-                                    <rect x="40" y="25" width="8" height="35" fill="var(--accent-primary)" opacity="0.7" rx="1" />
-                                    <rect x="55" y="28" width="8" height="32" fill="var(--accent-primary)" opacity="0.68" rx="1" />
-                                    <rect x="70" y="22" width="8" height="38" fill="var(--accent-primary)" opacity="0.75" rx="1" />
-                                    <rect x="85" y="18" width="8" height="42" fill="var(--accent-primary)" opacity="0.8" rx="1" />
-                                    <rect x="100" y="22" width="8" height="38" fill="var(--accent-primary)" opacity="0.75" rx="1" />
-                                    <rect x="115" y="28" width="8" height="32" fill="var(--accent-primary)" opacity="0.68" rx="1" />
-                                    <rect x="130" y="32" width="8" height="28" fill="var(--accent-primary)" opacity="0.62" rx="1" />
-                                    <rect x="145" y="30" width="8" height="30" fill="var(--accent-primary)" opacity="0.65" rx="1" />
-                                    <rect x="160" y="25" width="8" height="35" fill="var(--accent-primary)" opacity="0.7" rx="1" />
-                                    <rect x="175" y="28" width="8" height="32" fill="var(--accent-primary)" opacity="0.68" rx="1" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="dashboard-panel">
-                            <div class="panel-header">
-                                <h4>Infra Cost</h4>
-                                <span class="panel-value panel-value-green">-31%</span>
-                            </div>
-                            <div class="panel-chart">
-                                <svg viewBox="0 0 200 60" class="area-chart">
-                                    <defs>
-                                        <linearGradient id="costGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3" />
-                                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
-                                        </linearGradient>
-                                    </defs>
-                                    <polygon
-                                        points="0,60 0,15 20,18 40,22 60,20 80,25 100,28 120,32 140,35 160,38 180,42 200,48 200,60"
-                                        fill="url(#costGradient)" />
-                                    <polyline
-                                        points="0,15 20,18 40,22 60,20 80,25 100,28 120,32 140,35 160,38 180,42 200,48"
-                                        fill="none" stroke="#10b981" stroke-width="2" />
-                                    <circle cx="200" cy="48" r="3" fill="#10b981" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a DevOps/Platform Engineer and AI practitioner with a passion for crafting elegant, scalable
-                        solutions to complex challenges. I specialize in bootstrapping well-architected PCI-DSS and
-                        ISO/IEC 27001 compliant cloud environments, building RAG-powered AI platforms, and utilizing
-                        Infrastructure as Code (IaC) for automated resource deployment.
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <p class="eyebrow">Senior Platform Engineer / AI Infrastructure</p>
+                    <h1 class="hero-title">Lucas Possamai</h1>
+                    <p class="hero-subtitle">
+                        I build secure, compliance-ready cloud platforms and the AI systems that run on them.
                     </p>
-                    <p>
-                        My expertise spans cloud architecture, AI/ML integration, and DevOps practices. I design and
-                        build production-grade RAG pipelines with vector databases, LLM orchestration, and
-                        human-in-the-loop workflows. From multi-cloud infrastructure on AWS and Azure to event-sourced
-                        AI systems that turn unstructured documents into actionable insights, I thrive on delivering
-                        secure, intelligent, and efficient solutions.
+                    <p class="hero-description">
+                        My work sits where platform engineering, DevSecOps, and applied AI meet: landing zones,
+                        hardened Kubernetes and container platforms, RAG pipelines, CI/CD automation, observability,
+                        and incident response workflows.
                     </p>
-                    <p>
-                        When I'm not optimizing cloud environments, you'll find me gaming on my PS5, playing drums, or
-                        diving into
-                        science fiction novels. I'm also a motorsport enthusiast, often spotted at car shows or track
-                        days.
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3>10+</h3>
-                        <p>Years Experience</p>
+                    <div class="hero-actions">
+                        <a href="#skills" class="btn btn-primary">View systems</a>
+                        <a href="#contact" class="btn btn-secondary">Contact</a>
                     </div>
-                    <div class="stat">
-                        <h3>30%</h3>
-                        <p>Cloud Cost Reduction</p>
-                    </div>
-
-                    <div class="stat">
-                        <h3>90%</h3>
-                        <p>Manual Tasks Automated</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section - Dev.to Feed -->
-    <section id="blog" class="blog section">
-        <div class="container">
-            <h2 class="section-title">Latest Articles</h2>
-            <p class="blog-subtitle">Fresh posts from my Dev.to blog</p>
-            <div class="blog-grid" id="devto-feed">
-                <div class="blog-loading">
-                    <span class="loading-spinner"></span>
-                    <span>Loading articles...</span>
-                </div>
-            </div>
-            <div class="blog-cta">
-                <a href="https://dev.to/lpossamai" target="_blank" class="btn btn-secondary">View All Articles</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon">☁️</div>
-                    <h3>Cloud Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Azure</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>DevOps Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">GitLab CI/CD</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">Terragrunt</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">📊</div>
-                    <h3>Monitoring & Logging</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">New Relic</span>
-                        <span class="skill-tag">ELK Stack</span>
-                        <span class="skill-tag">Datadog</span>
-                        <span class="skill-tag">CloudWatch</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Oracle</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🤖</div>
-                    <h3>AI & RAG</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">RAG Pipelines</span>
-                        <span class="skill-tag">pgvector</span>
-                        <span class="skill-tag">Pinecone</span>
-                        <span class="skill-tag">OpenAI Embeddings</span>
-                        <span class="skill-tag">Hybrid Search</span>
-                        <span class="skill-tag">Cohere Reranking</span>
-                        <span class="skill-tag">LLM Integration</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🔒</div>
-                    <h3>Compliance</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PCI-DSS v4.0</span>
-                        <span class="skill-tag">ISO/IEC 27001</span>
-                        <span class="skill-tag">SOC 2</span>
-                        <span class="skill-tag">CIS</span>
-                        <span class="skill-tag">AWS Well-Architected Framework</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-description">
-                        Feel free to reach out for project inquiries, collaboration opportunities, or just to say hello!
-                        I'm always interested in discussing new challenges and opportunities.
-                    </p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <a href="mailto:lucas@lpossamai.me">lucas@lpossamai.me</a>
+                    <dl class="hero-metrics" aria-label="Professional highlights">
+                        <div>
+                            <dt>10+</dt>
+                            <dd>years in platform and cloud engineering</dd>
                         </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span>Auckland, New Zealand</span>
+                        <div>
+                            <dt>6.4x</dt>
+                            <dd>CI build speedup delivered through automation</dd>
+                        </div>
+                        <div>
+                            <dt>90%</dt>
+                            <dd>manual platform tasks automated</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="hero-visual" aria-label="Platform operations terminal illustration">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-chrome" aria-hidden="true">
+                                <span class="terminal-light terminal-red"></span>
+                                <span class="terminal-light terminal-amber"></span>
+                                <span class="terminal-light terminal-green"></span>
+                            </div>
+                            <span class="terminal-label">platform-console</span>
+                            <div class="terminal-tabs" role="tablist" aria-label="Console views">
+                                <button class="terminal-tab is-active" type="button" role="tab" aria-selected="true"
+                                    data-terminal-tab="deploy">deploy</button>
+                                <button class="terminal-tab" type="button" role="tab" aria-selected="false"
+                                    data-terminal-tab="cost">cost</button>
+                                <button class="terminal-tab" type="button" role="tab" aria-selected="false"
+                                    data-terminal-tab="observe">observe</button>
+                            </div>
+                        </div>
+                        <div class="terminal-screen">
+                            <div class="terminal-page is-active" data-terminal-page="deploy" role="tabpanel">
+                                <div class="terminal-row">
+                                    <span class="prompt">$</span>
+                                    <span>deploy secure-ai-platform --env production</span>
+                                </div>
+                                <div class="terminal-output success">policy checks passed: pci-dss, iso-27001, soc-2</div>
+                                <div class="terminal-output">terraform plan: 0 to add, 0 to change, 0 to destroy</div>
+                                <div class="terminal-output">rag pipeline: hybrid search + rerank online</div>
+                                <div class="terminal-output">observability: traces, logs, metrics streaming</div>
+                                <div class="terminal-row terminal-cursor">
+                                    <span class="prompt">$</span>
+                                    <span>ship reliable systems</span>
+                                </div>
+                            </div>
+                            <div class="terminal-page" data-terminal-page="cost" role="tabpanel" hidden>
+                                <div class="terminal-row">
+                                    <span class="prompt">$</span>
+                                    <span>infracost breakdown --path infra/production</span>
+                                </div>
+                                <div class="cost-grid">
+                                    <div>
+                                        <span class="panel-kicker">monthly estimate</span>
+                                        <strong>$8.4k</strong>
+                                        <small>tracked before merge</small>
+                                    </div>
+                                    <div>
+                                        <span class="panel-kicker">change</span>
+                                        <strong class="success-text">-31%</strong>
+                                        <small>rightsizing and spot capacity</small>
+                                    </div>
+                                </div>
+                                <div class="terminal-bars" aria-label="Cost comparison graph">
+                                    <div style="--bar-size: 92%">
+                                        <span>compute</span>
+                                        <i></i>
+                                        <b>$4.1k</b>
+                                    </div>
+                                    <div style="--bar-size: 56%">
+                                        <span>data</span>
+                                        <i></i>
+                                        <b>$2.2k</b>
+                                    </div>
+                                    <div style="--bar-size: 36%">
+                                        <span>egress</span>
+                                        <i></i>
+                                        <b>$1.1k</b>
+                                    </div>
+                                    <div style="--bar-size: 24%">
+                                        <span>logs</span>
+                                        <i></i>
+                                        <b>$0.7k</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="terminal-page" data-terminal-page="observe" role="tabpanel" hidden>
+                                <div class="terminal-row">
+                                    <span class="prompt">$</span>
+                                    <span>watch service-slo --window 30d</span>
+                                </div>
+                                <div class="observability-chart" aria-label="Latency and error budget chart">
+                                    <svg viewBox="0 0 420 150" role="img" aria-label="Service health graph">
+                                        <path class="chart-grid-line" d="M0 120H420M0 80H420M0 40H420"></path>
+                                        <path class="chart-area"
+                                            d="M0 150V104L35 98L70 86L105 92L140 78L175 66L210 70L245 52L280 58L315 42L350 48L385 34L420 28V150Z">
+                                        </path>
+                                        <path class="chart-line"
+                                            d="M0 104L35 98L70 86L105 92L140 78L175 66L210 70L245 52L280 58L315 42L350 48L385 34L420 28">
+                                        </path>
+                                        <path class="chart-line-alt"
+                                            d="M0 132L35 126L70 130L105 118L140 124L175 110L210 116L245 104L280 108L315 92L350 98L385 84L420 88">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="slo-grid">
+                                    <div><span>p95 latency</span><strong>184ms</strong></div>
+                                    <div><span>error budget</span><strong>93%</strong></div>
+                                    <div><span>trace coverage</span><strong>99%</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signal-board">
+                        <div>
+                            <span class="signal-label">cost</span>
+                            <span class="signal-value">Infracost gates before merge</span>
+                        </div>
+                        <div>
+                            <span class="signal-label">observe</span>
+                            <span class="signal-value">metrics, traces, and logs linked</span>
+                        </div>
+                        <div>
+                            <span class="signal-label">deploy</span>
+                            <span class="signal-value">policy checks block risky changes</span>
                         </div>
                     </div>
                 </div>
-                <div class="social-links">
-                    <!-- <a href="https://linkedin.com/in/lucaspossamai" target="_blank" class="social-link">
-                        <span class="social-icon">💼</span>
-                        <span>LinkedIn</span>
-                    </a> -->
-                    <a href="https://github.com/lpossamai" target="_blank" class="social-link">
-                        <span class="social-icon">🐙</span>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://dev.to/lpossamai" target="_blank" class="social-link">
-                        <span class="social-icon">✍️</span>
-                        <span>Dev.to</span>
-                    </a>
+            </div>
+        </section>
+
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Operator profile</p>
+                    <h2 class="section-title">Platform work with security built in</h2>
+                </div>
+                <div class="about-layout">
+                    <div class="about-copy">
+                        <p>
+                            I lead platform security and infrastructure across public cloud, Kubernetes, and
+                            containerized workloads. I design multi-cloud foundations with Terraform and Terragrunt,
+                            policy guardrails, centralized logging, least-privilege access, and audit-ready deployment
+                            paths.
+                        </p>
+                        <p>
+                            I also build AI infrastructure: RAG systems, vector search, model invocation audit trails,
+                            and human-in-the-loop workflows. The goal is practical reliability: systems that are secure,
+                            observable, cost-aware, and clear enough for teams to operate.
+                        </p>
+                    </div>
+                    <div class="operator-panel">
+                        <h3>Current focus</h3>
+                        <ul>
+                            <li>Security-first landing zones and platform guardrails</li>
+                            <li>RAG pipelines, vector databases, and LLM integration</li>
+                            <li>Compliance automation for PCI-DSS, ISO 27001, and SOC 2</li>
+                            <li>CI/CD performance, cloud cost control, and incident response</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section id="skills" class="skills section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Systems I build</p>
+                    <h2 class="section-title">From cloud foundations to AI runtime</h2>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-category">
+                        <div class="skill-index">01</div>
+                        <h3>Cloud Platforms</h3>
+                        <p>Landing zones, account and subscription vending, network segmentation, container platforms,
+                            and production-grade deployment foundations.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Public cloud</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Containers</span>
+                            <span class="skill-tag">Networking</span>
+                        </div>
+                    </article>
+                    <article class="skill-category">
+                        <div class="skill-index">02</div>
+                        <h3>Security & Compliance</h3>
+                        <p>Control mapping, vulnerability management, least-privilege access, audit evidence,
+                            incident response, and hardened runtime design.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PCI-DSS v4</span>
+                            <span class="skill-tag">ISO 27001</span>
+                            <span class="skill-tag">SOC 2</span>
+                            <span class="skill-tag">CIS</span>
+                        </div>
+                    </article>
+                    <article class="skill-category">
+                        <div class="skill-index">03</div>
+                        <h3>Automation</h3>
+                        <p>Infrastructure as Code, GitOps workflows, CI/CD pipelines, policy checks, security scanning,
+                            and repeatable multi-environment delivery.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">Terragrunt</span>
+                            <span class="skill-tag">Ansible</span>
+                            <span class="skill-tag">CI/CD</span>
+                        </div>
+                    </article>
+                    <article class="skill-category">
+                        <div class="skill-index">04</div>
+                        <h3>AI Infrastructure</h3>
+                        <p>RAG pipelines, hybrid retrieval, embedding workflows, reranking, model audit logging, and
+                            secure platform patterns for AI-powered products.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">Vector search</span>
+                            <span class="skill-tag">Hybrid search</span>
+                            <span class="skill-tag">LLM ops</span>
+                        </div>
+                    </article>
+                    <article class="skill-category">
+                        <div class="skill-index">05</div>
+                        <h3>Observability</h3>
+                        <p>Metrics, logs, traces, alerting, post-incident review, and operational dashboards that make
+                            production behavior visible.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Metrics</span>
+                            <span class="skill-tag">Logs</span>
+                            <span class="skill-tag">Tracing</span>
+                            <span class="skill-tag">SLOs</span>
+                        </div>
+                    </article>
+                    <article class="skill-category">
+                        <div class="skill-index">06</div>
+                        <h3>Data Platforms</h3>
+                        <p>Relational databases, replication, migration planning, performance tuning, and storage
+                            patterns for high-throughput production systems.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Replication</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Writing</p>
+                    <h2 class="section-title">Latest technical articles</h2>
+                    <p class="section-copy">Fresh posts from my developer writing feed.</p>
+                </div>
+                <div class="blog-grid" id="devto-feed">
+                    <div class="blog-loading">
+                        <span class="loading-spinner"></span>
+                        <span>Loading articles...</span>
+                    </div>
+                </div>
+                <div class="blog-cta">
+                    <a href="https://dev.to/lpossamai" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary">View all articles</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Contact</p>
+                    <h2 class="section-title">Let us talk systems</h2>
+                </div>
+                <div class="contact-content">
+                    <div>
+                        <p class="contact-description">
+                            Reach out for platform engineering, AI infrastructure, compliance automation, security
+                            hardening, or production reliability work.
+                        </p>
+                        <div class="contact-details">
+                            <a class="contact-item" href="mailto:hello@lpossamai.me">
+                                <span class="contact-icon">@</span>
+                                <span>hello@lpossamai.me</span>
+                            </a>
+                            <div class="contact-item">
+                                <span class="contact-icon">#</span>
+                                <span>Auckland, New Zealand</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/lpossamai" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <span class="social-icon">git</span>
+                            <span>Code</span>
+                        </a>
+                        <a href="https://dev.to/lpossamai" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <span class="social-icon">txt</span>
+                            <span>Articles</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Lucas Possamai. All rights reserved.</p>
+            <p>&copy; 2026 Lucas Possamai</p>
         </div>
     </footer>
 
-    <!-- Bottom Navigation (Mobile) -->
-    <nav class="bottom-nav" id="bottom-nav">
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Mobile navigation">
         <div class="bottom-nav-container">
             <a href="#home" class="bottom-nav-item active" data-section="home">
-                <span class="bottom-nav-icon">🏠</span>
+                <span class="bottom-nav-icon">00</span>
                 <span class="bottom-nav-label">Home</span>
             </a>
             <a href="#about" class="bottom-nav-item" data-section="about">
-                <span class="bottom-nav-icon">👤</span>
-                <span class="bottom-nav-label">About</span>
-            </a>
-            <a href="#blog" class="bottom-nav-item" data-section="blog">
-                <span class="bottom-nav-icon">✍️</span>
-                <span class="bottom-nav-label">Blog</span>
+                <span class="bottom-nav-icon">01</span>
+                <span class="bottom-nav-label">Profile</span>
             </a>
             <a href="#skills" class="bottom-nav-item" data-section="skills">
-                <span class="bottom-nav-icon">⚡</span>
-                <span class="bottom-nav-label">Skills</span>
+                <span class="bottom-nav-icon">02</span>
+                <span class="bottom-nav-label">Systems</span>
+            </a>
+            <a href="#blog" class="bottom-nav-item" data-section="blog">
+                <span class="bottom-nav-icon">03</span>
+                <span class="bottom-nav-label">Writing</span>
             </a>
             <a href="#contact" class="bottom-nav-item" data-section="contact">
-                <span class="bottom-nav-icon">📧</span>
+                <span class="bottom-nav-icon">04</span>
                 <span class="bottom-nav-label">Contact</span>
             </a>
-            <button class="bottom-nav-theme" id="bottom-theme-toggle" aria-label="Toggle theme">
-                <span class="bottom-nav-icon" id="bottom-theme-icon">🌙</span>
-                <span class="bottom-nav-label">Theme</span>
+            <button class="bottom-nav-theme" id="bottom-theme-toggle" aria-label="Toggle theme, current theme dark">
+                <span class="bottom-nav-icon" id="bottom-theme-icon">☾</span>
+                <span class="bottom-nav-label" id="bottom-theme-label">Theme</span>
             </button>
         </div>
     </nav>
 
     <script src="terminal.js"></script>
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "d22633aaaade42e08e4779be8e8b48eb"}'></script>
+    <script>
+        if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+            const analytics = document.createElement('script');
+            analytics.defer = true;
+            analytics.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+            analytics.dataset.cfBeacon = '{"token": "d22633aaaade42e08e4779be8e8b48eb"}';
+            document.head.appendChild(analytics);
+        }
+    </script>
 </body>
 
 </html>

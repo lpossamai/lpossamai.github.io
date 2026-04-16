@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize animations on scroll
   initializeScrollAnimations();
 
-  // Initialize Dev.to blog feed
+  // Initialize rotating hero console
+  initializeHeroConsole();
+
+  // Initialize external article feed
   initializeDevToFeed();
 });
 
@@ -26,10 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeTheme() {
   const themeToggle = document.getElementById('theme-toggle');
   const bottomThemeToggle = document.getElementById('bottom-theme-toggle');
+  const themeState = document.querySelector('.theme-toggle-state');
   const themeIcon = document.querySelector('.theme-toggle-icon');
   const bottomThemeIcon = document.getElementById('bottom-theme-icon');
+  const bottomThemeLabel = document.getElementById('bottom-theme-label');
 
-  // Check for saved theme preference or default to dark mode
   const savedTheme = localStorage.getItem('theme') || 'dark';
   setTheme(savedTheme);
 
@@ -51,20 +55,29 @@ function initializeTheme() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
-    // Update desktop theme toggle icon
+    if (themeState) {
+      themeState.textContent = theme === 'dark' ? 'DARK' : 'LIGHT';
+    }
+
     if (themeIcon) {
-      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      themeIcon.textContent = theme === 'dark' ? '☾' : '☼';
     }
 
-    // Update bottom nav theme toggle icon
     if (bottomThemeIcon) {
-      bottomThemeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      bottomThemeIcon.textContent = theme === 'dark' ? '☾' : '☼';
     }
 
-    // Update theme-color meta tag
+    if (bottomThemeLabel) {
+      bottomThemeLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
+    }
+
+    const themeLabel = `Toggle theme, current theme ${theme}`;
+    themeToggle?.setAttribute('aria-label', themeLabel);
+    bottomThemeToggle?.setAttribute('aria-label', themeLabel);
+
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (themeColorMeta) {
-      themeColorMeta.content = theme === 'dark' ? '#0f172a' : '#ffffff';
+      themeColorMeta.content = theme === 'dark' ? '#000000' : '#f5f7f2';
     }
   }
 }
@@ -232,11 +245,67 @@ function initializeScrollAnimations() {
     });
   }, observerOptions);
 
-  // Observe elements for animation
-  const animateElements = document.querySelectorAll('.skill-category, .project-card, .stat, .about-text, .contact-info');
+  const animateElements = document.querySelectorAll('.skill-category, .blog-card, .operator-panel, .about-copy, .contact-content');
   animateElements.forEach(el => {
     observer.observe(el);
   });
+}
+
+/* ===== HERO CONSOLE FUNCTIONALITY ===== */
+function initializeHeroConsole() {
+  const consolePanel = document.querySelector('.hero-visual');
+  const tabs = Array.from(document.querySelectorAll('[data-terminal-tab]'));
+  const pages = Array.from(document.querySelectorAll('[data-terminal-page]'));
+  if (!consolePanel || tabs.length === 0 || pages.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeIndex = Math.max(0, tabs.findIndex(tab => tab.classList.contains('is-active')));
+  let rotationTimer;
+
+  function showPage(nextIndex) {
+    activeIndex = nextIndex;
+    const viewName = tabs[activeIndex].dataset.terminalTab;
+
+    tabs.forEach(tab => {
+      const isActive = tab.dataset.terminalTab === viewName;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+    });
+
+    pages.forEach(page => {
+      const isActive = page.dataset.terminalPage === viewName;
+      page.classList.toggle('is-active', isActive);
+      page.hidden = !isActive;
+    });
+  }
+
+  function rotatePage() {
+    showPage((activeIndex + 1) % tabs.length);
+  }
+
+  function startRotation() {
+    if (prefersReducedMotion || rotationTimer) return;
+    rotationTimer = window.setInterval(rotatePage, 4200);
+  }
+
+  function stopRotation() {
+    if (!rotationTimer) return;
+    window.clearInterval(rotationTimer);
+    rotationTimer = undefined;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      stopRotation();
+      showPage(index);
+      startRotation();
+    });
+  });
+
+  consolePanel.addEventListener('mouseenter', stopRotation);
+  consolePanel.addEventListener('mouseleave', startRotation);
+  showPage(activeIndex);
+  startRotation();
 }
 
 /* ===== UTILITY FUNCTIONS ===== */
@@ -359,14 +428,12 @@ window.addEventListener('unhandledrejection', (e) => {
 
 // Simple page view tracking (replace with your analytics solution)
 function trackPageView() {
-  // Add your analytics tracking code here
-  console.log('Page view tracked');
+  return true;
 }
 
 // Track interactions
 function trackInteraction(category, action, label = '') {
-  // Add your analytics tracking code here
-  console.log(`Interaction tracked: ${category} - ${action} - ${label}`);
+  return Boolean(category && action && label !== undefined);
 }
 
 // Initialize analytics
@@ -454,12 +521,12 @@ async function initializeDevToFeed() {
     feedContainer.innerHTML = articles.map(article => createArticleCard(article)).join('');
 
   } catch (error) {
-    console.error('Error fetching Dev.to articles:', error);
+    console.error('Error fetching articles:', error);
     feedContainer.innerHTML = `
       <div class="blog-error">
         <p>Unable to load articles right now.</p>
         <a href="https://dev.to/${DEVTO_USERNAME}" target="_blank" class="btn btn-secondary" style="margin-top: 1rem;">
-          Visit Dev.to Profile
+          Visit article profile
         </a>
       </div>
     `;
@@ -473,18 +540,19 @@ function createArticleCard(article) {
     day: 'numeric'
   });
 
+  const publicTitle = sanitizePublicText(article.title || 'Technical article');
+  const publicDescription = sanitizePublicText(article.description || '');
   const coverImage = article.cover_image || article.social_image;
   const imageHtml = coverImage
-    ? `<img src="${coverImage}" alt="${escapeHtml(article.title)}" class="blog-card-image" loading="lazy">`
-    : `<div class="blog-card-placeholder">📝</div>`;
+    ? `<img src="${coverImage}" alt="${escapeHtml(publicTitle)}" class="blog-card-image" loading="lazy">`
+    : `<div class="blog-card-placeholder">TXT</div>`;
 
   const readingTime = article.reading_time_minutes || 1;
   const reactions = article.positive_reactions_count || 0;
   const comments = article.comments_count || 0;
 
-  // Strip HTML and truncate description
-  const excerpt = article.description
-    ? escapeHtml(article.description).substring(0, 150) + (article.description.length > 150 ? '...' : '')
+  const excerpt = publicDescription
+    ? escapeHtml(publicDescription).substring(0, 150) + (publicDescription.length > 150 ? '...' : '')
     : 'Click to read more...';
 
   return `
@@ -494,25 +562,25 @@ function createArticleCard(article) {
       </a>
       <div class="blog-card-content">
         <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="blog-card-title">
-          ${escapeHtml(article.title)}
+          ${escapeHtml(publicTitle)}
         </a>
         <p class="blog-card-excerpt">${excerpt}</p>
         <div class="blog-card-meta">
           <span class="blog-card-date">
-            <span>📅</span>
+            <span>date</span>
             <span>${publishedDate}</span>
           </span>
           <div class="blog-card-stats">
             <span class="blog-card-stat" title="Reactions">
-              <span>❤️</span>
+              <span>up</span>
               <span>${reactions}</span>
             </span>
             <span class="blog-card-stat" title="Comments">
-              <span>💬</span>
+              <span>cm</span>
               <span>${comments}</span>
             </span>
             <span class="blog-card-stat" title="Reading time">
-              <span>⏱️</span>
+              <span>min</span>
               <span>${readingTime} min</span>
             </span>
           </div>
@@ -520,6 +588,32 @@ function createArticleCard(article) {
       </div>
     </article>
   `;
+}
+
+function sanitizePublicText(text) {
+  const replacements = [
+    [/\bAmazon Web Services\b/gi, 'public cloud'],
+    [/\bAmazon\b/gi, 'cloud provider'],
+    [/\bAWS\b/g, 'cloud platform'],
+    [/\bAzure\b/g, 'cloud platform'],
+    [/\bMicrosoft\b/gi, 'cloud provider'],
+    [/\bCloudFront\b/g, 'edge network'],
+    [/\bEC2\b/g, 'virtual machines'],
+    [/\bECS\b/g, 'container service'],
+    [/\bEKS\b/g, 'managed Kubernetes'],
+    [/\bFargate\b/g, 'serverless containers'],
+    [/\bS3\b/g, 'object storage'],
+    [/\bWAF\b/g, 'web firewall'],
+    [/\bGitHub\b/g, 'code platform'],
+    [/\bGitLab\b/g, 'CI platform'],
+    [/\bOpenAI\b/g, 'model provider'],
+    [/\bPinecone\b/g, 'vector database'],
+    [/\bCohere\b/g, 'reranking provider']
+  ];
+
+  return replacements.reduce((value, [pattern, replacement]) => {
+    return value.replace(pattern, replacement);
+  }, String(text));
 }
 
 function escapeHtml(text) {
