@@ -29,8 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeTheme() {
   const themeToggle = document.getElementById('theme-toggle');
   const bottomThemeToggle = document.getElementById('bottom-theme-toggle');
+  const themeState = document.querySelector('.theme-toggle-state');
   const themeIcon = document.querySelector('.theme-toggle-icon');
   const bottomThemeIcon = document.getElementById('bottom-theme-icon');
+  const bottomThemeLabel = document.getElementById('bottom-theme-label');
 
   const savedTheme = localStorage.getItem('theme') || 'dark';
   setTheme(savedTheme);
@@ -53,13 +55,25 @@ function initializeTheme() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
+    if (themeState) {
+      themeState.textContent = theme === 'dark' ? 'DARK' : 'LIGHT';
+    }
+
     if (themeIcon) {
-      themeIcon.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+      themeIcon.textContent = theme === 'dark' ? '☾' : '☼';
     }
 
     if (bottomThemeIcon) {
-      bottomThemeIcon.textContent = theme === 'dark' ? 'LT' : 'DK';
+      bottomThemeIcon.textContent = theme === 'dark' ? '☾' : '☼';
     }
+
+    if (bottomThemeLabel) {
+      bottomThemeLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
+    }
+
+    const themeLabel = `Toggle theme, current theme ${theme}`;
+    themeToggle?.setAttribute('aria-label', themeLabel);
+    bottomThemeToggle?.setAttribute('aria-label', themeLabel);
 
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (themeColorMeta) {

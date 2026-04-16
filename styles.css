@@ -226,14 +226,28 @@ a {
 }
 
 .theme-toggle {
-  min-width: 4.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 10.25rem;
   background: var(--bg-primary);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .theme-toggle:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
+}
+
+.theme-toggle-state,
+.theme-toggle-icon {
+  color: var(--accent-primary);
+}
+
+.theme-toggle-icon {
+  min-width: 1.5rem;
+  text-align: center;
 }
 
 .nav-mobile-toggle {
