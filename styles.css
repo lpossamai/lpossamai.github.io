@@ -394,13 +394,21 @@ a {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  justify-content: space-between;
   min-height: 2.75rem;
   border-bottom: 1px solid var(--border-color);
   padding: 0 var(--space-md);
   background: #060906;
 }
 
+.terminal-chrome {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .terminal-light {
+  display: block;
   width: 0.72rem;
   height: 0.72rem;
   border-radius: 50%;
@@ -419,10 +427,33 @@ a {
 }
 
 .terminal-label {
-  margin-left: var(--space-sm);
+  margin-right: auto;
   color: #9dffbf;
   font-family: var(--font-mono);
   font-size: 0.82rem;
+}
+
+.terminal-tabs {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.terminal-tab {
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 0.32rem 0.48rem;
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.terminal-tab:hover,
+.terminal-tab.is-active {
+  border-color: var(--border-color);
+  color: var(--accent-primary);
 }
 
 .terminal-screen {
@@ -435,6 +466,14 @@ a {
   color: var(--code-text);
   font-family: var(--font-mono);
   font-size: 0.95rem;
+}
+
+.terminal-page[hidden] {
+  display: none;
+}
+
+.terminal-page.is-active {
+  animation: terminalPageIn 260ms ease;
 }
 
 .terminal-row,
@@ -457,6 +496,10 @@ a {
   color: var(--accent-secondary);
 }
 
+.success-text {
+  color: var(--accent-primary);
+}
+
 .terminal-cursor::after {
   content: '';
   display: inline-block;
@@ -466,6 +509,130 @@ a {
   background: var(--accent-primary);
   vertical-align: -0.16rem;
   animation: blink 1s steps(2, start) infinite;
+}
+
+.cost-grid,
+.slo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.cost-grid div,
+.slo-grid div {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  background: rgba(0, 255, 102, 0.04);
+}
+
+.panel-kicker,
+.cost-grid small,
+.slo-grid span {
+  display: block;
+  color: var(--text-tertiary);
+  font-size: 0.72rem;
+}
+
+.cost-grid strong,
+.slo-grid strong {
+  display: block;
+  margin: 0.15rem 0;
+  color: var(--code-text);
+  font-size: 1.45rem;
+}
+
+.terminal-bars {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: var(--space-lg);
+}
+
+.terminal-bars div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) 3.5rem;
+  gap: var(--space-sm);
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.terminal-bars i {
+  position: relative;
+  display: block;
+  height: 0.72rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 255, 102, 0.06);
+}
+
+.terminal-bars i::before {
+  content: '';
+  display: block;
+  width: var(--bar-size);
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+.terminal-bars b {
+  color: var(--code-text);
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.observability-chart {
+  margin: var(--space-sm) 0 var(--space-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  background: rgba(0, 255, 102, 0.04);
+}
+
+.observability-chart svg {
+  display: block;
+  width: 100%;
+  height: 150px;
+  overflow: visible;
+}
+
+.chart-grid-line {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 1;
+  opacity: 0.8;
+}
+
+.chart-area {
+  fill: rgba(0, 255, 102, 0.14);
+}
+
+.chart-line,
+.chart-line-alt {
+  fill: none;
+  stroke-linecap: square;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.chart-line {
+  stroke: var(--accent-primary);
+}
+
+.chart-line-alt {
+  stroke: var(--accent-secondary);
+  opacity: 0.9;
+}
+
+.slo-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 0;
+}
+
+.slo-grid strong {
+  color: var(--accent-primary);
+  font-size: 1.2rem;
 }
 
 .signal-board {
@@ -905,6 +1072,18 @@ a {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes terminalPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

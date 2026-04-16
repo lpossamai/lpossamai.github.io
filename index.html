@@ -81,38 +81,115 @@
                 <div class="hero-visual" aria-label="Platform operations terminal illustration">
                     <div class="terminal-window">
                         <div class="terminal-titlebar">
-                            <span class="terminal-light terminal-red"></span>
-                            <span class="terminal-light terminal-amber"></span>
-                            <span class="terminal-light terminal-green"></span>
+                            <div class="terminal-chrome" aria-hidden="true">
+                                <span class="terminal-light terminal-red"></span>
+                                <span class="terminal-light terminal-amber"></span>
+                                <span class="terminal-light terminal-green"></span>
+                            </div>
                             <span class="terminal-label">platform-console</span>
+                            <div class="terminal-tabs" role="tablist" aria-label="Console views">
+                                <button class="terminal-tab is-active" type="button" role="tab" aria-selected="true"
+                                    data-terminal-tab="deploy">deploy</button>
+                                <button class="terminal-tab" type="button" role="tab" aria-selected="false"
+                                    data-terminal-tab="cost">cost</button>
+                                <button class="terminal-tab" type="button" role="tab" aria-selected="false"
+                                    data-terminal-tab="observe">observe</button>
+                            </div>
                         </div>
                         <div class="terminal-screen">
-                            <div class="terminal-row">
-                                <span class="prompt">$</span>
-                                <span>deploy secure-ai-platform --env production</span>
+                            <div class="terminal-page is-active" data-terminal-page="deploy" role="tabpanel">
+                                <div class="terminal-row">
+                                    <span class="prompt">$</span>
+                                    <span>deploy secure-ai-platform --env production</span>
+                                </div>
+                                <div class="terminal-output success">policy checks passed: pci-dss, iso-27001, soc-2</div>
+                                <div class="terminal-output">terraform plan: 0 to add, 0 to change, 0 to destroy</div>
+                                <div class="terminal-output">rag pipeline: hybrid search + rerank online</div>
+                                <div class="terminal-output">observability: traces, logs, metrics streaming</div>
+                                <div class="terminal-row terminal-cursor">
+                                    <span class="prompt">$</span>
+                                    <span>ship reliable systems</span>
+                                </div>
                             </div>
-                            <div class="terminal-output success">policy checks passed: pci-dss, iso-27001, soc-2</div>
-                            <div class="terminal-output">terraform plan: 0 to add, 0 to change, 0 to destroy</div>
-                            <div class="terminal-output">rag pipeline: hybrid search + rerank online</div>
-                            <div class="terminal-output">observability: traces, logs, metrics streaming</div>
-                            <div class="terminal-row terminal-cursor">
-                                <span class="prompt">$</span>
-                                <span>ship reliable systems</span>
+                            <div class="terminal-page" data-terminal-page="cost" role="tabpanel" hidden>
+                                <div class="terminal-row">
+                                    <span class="prompt">$</span>
+                                    <span>infracost breakdown --path infra/production</span>
+                                </div>
+                                <div class="cost-grid">
+                                    <div>
+                                        <span class="panel-kicker">monthly estimate</span>
+                                        <strong>$8.4k</strong>
+                                        <small>tracked before merge</small>
+                                    </div>
+                                    <div>
+                                        <span class="panel-kicker">change</span>
+                                        <strong class="success-text">-31%</strong>
+                                        <small>rightsizing and spot capacity</small>
+                                    </div>
+                                </div>
+                                <div class="terminal-bars" aria-label="Cost comparison graph">
+                                    <div style="--bar-size: 92%">
+                                        <span>compute</span>
+                                        <i></i>
+                                        <b>$4.1k</b>
+                                    </div>
+                                    <div style="--bar-size: 56%">
+                                        <span>data</span>
+                                        <i></i>
+                                        <b>$2.2k</b>
+                                    </div>
+                                    <div style="--bar-size: 36%">
+                                        <span>egress</span>
+                                        <i></i>
+                                        <b>$1.1k</b>
+                                    </div>
+                                    <div style="--bar-size: 24%">
+                                        <span>logs</span>
+                                        <i></i>
+                                        <b>$0.7k</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="terminal-page" data-terminal-page="observe" role="tabpanel" hidden>
+                                <div class="terminal-row">
+                                    <span class="prompt">$</span>
+                                    <span>watch service-slo --window 30d</span>
+                                </div>
+                                <div class="observability-chart" aria-label="Latency and error budget chart">
+                                    <svg viewBox="0 0 420 150" role="img" aria-label="Service health graph">
+                                        <path class="chart-grid-line" d="M0 120H420M0 80H420M0 40H420"></path>
+                                        <path class="chart-area"
+                                            d="M0 150V104L35 98L70 86L105 92L140 78L175 66L210 70L245 52L280 58L315 42L350 48L385 34L420 28V150Z">
+                                        </path>
+                                        <path class="chart-line"
+                                            d="M0 104L35 98L70 86L105 92L140 78L175 66L210 70L245 52L280 58L315 42L350 48L385 34L420 28">
+                                        </path>
+                                        <path class="chart-line-alt"
+                                            d="M0 132L35 126L70 130L105 118L140 124L175 110L210 116L245 104L280 108L315 92L350 98L385 84L420 88">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="slo-grid">
+                                    <div><span>p95 latency</span><strong>184ms</strong></div>
+                                    <div><span>error budget</span><strong>93%</strong></div>
+                                    <div><span>trace coverage</span><strong>99%</strong></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="signal-board">
                         <div>
-                            <span class="signal-label">security</span>
-                            <span class="signal-value">guardrails enforced</span>
+                            <span class="signal-label">cost</span>
+                            <span class="signal-value">Infracost gates before merge</span>
                         </div>
                         <div>
-                            <span class="signal-label">delivery</span>
-                            <span class="signal-value">pipeline optimized</span>
+                            <span class="signal-label">observe</span>
+                            <span class="signal-value">metrics, traces, and logs linked</span>
                         </div>
                         <div>
-                            <span class="signal-label">runtime</span>
-                            <span class="signal-value">containers isolated</span>
+                            <span class="signal-label">deploy</span>
+                            <span class="signal-value">policy checks block risky changes</span>
                         </div>
                     </div>
                 </div>

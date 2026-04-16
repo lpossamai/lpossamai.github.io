@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize animations on scroll
   initializeScrollAnimations();
 
+  // Initialize rotating hero console
+  initializeHeroConsole();
+
   // Initialize external article feed
   initializeDevToFeed();
 });
@@ -232,6 +235,63 @@ function initializeScrollAnimations() {
   animateElements.forEach(el => {
     observer.observe(el);
   });
+}
+
+/* ===== HERO CONSOLE FUNCTIONALITY ===== */
+function initializeHeroConsole() {
+  const consolePanel = document.querySelector('.hero-visual');
+  const tabs = Array.from(document.querySelectorAll('[data-terminal-tab]'));
+  const pages = Array.from(document.querySelectorAll('[data-terminal-page]'));
+  if (!consolePanel || tabs.length === 0 || pages.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeIndex = Math.max(0, tabs.findIndex(tab => tab.classList.contains('is-active')));
+  let rotationTimer;
+
+  function showPage(nextIndex) {
+    activeIndex = nextIndex;
+    const viewName = tabs[activeIndex].dataset.terminalTab;
+
+    tabs.forEach(tab => {
+      const isActive = tab.dataset.terminalTab === viewName;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+    });
+
+    pages.forEach(page => {
+      const isActive = page.dataset.terminalPage === viewName;
+      page.classList.toggle('is-active', isActive);
+      page.hidden = !isActive;
+    });
+  }
+
+  function rotatePage() {
+    showPage((activeIndex + 1) % tabs.length);
+  }
+
+  function startRotation() {
+    if (prefersReducedMotion || rotationTimer) return;
+    rotationTimer = window.setInterval(rotatePage, 4200);
+  }
+
+  function stopRotation() {
+    if (!rotationTimer) return;
+    window.clearInterval(rotationTimer);
+    rotationTimer = undefined;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      stopRotation();
+      showPage(index);
+      startRotation();
+    });
+  });
+
+  consolePanel.addEventListener('mouseenter', stopRotation);
+  consolePanel.addEventListener('mouseleave', startRotation);
+  showPage(activeIndex);
+  startRotation();
 }
 
 /* ===== UTILITY FUNCTIONS ===== */
