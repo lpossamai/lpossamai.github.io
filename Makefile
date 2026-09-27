@@ -16,7 +16,8 @@ serve:
 	$(PYTHON) -m http.server $(PORT)
 
 check:
-	node --check terminal.js
+	node --check site.js
+	node --check theme-init.js
 	$(PYTHON) -c 'from html.parser import HTMLParser; from pathlib import Path; p = HTMLParser(); p.feed(Path("index.html").read_text()); print("html parser: ok")'
 
 clean:

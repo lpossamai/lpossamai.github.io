@@ -7,5 +7,6 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
       - id: check-merge-conflict
+      - id: detect-private-key
       # - id: no-commit-to-branch
       #   args: [--branch, main]

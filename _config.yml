@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll) skips dot-directories by default; publish security.txt.
+include:
+  - .well-known
+exclude:
+  - Makefile
