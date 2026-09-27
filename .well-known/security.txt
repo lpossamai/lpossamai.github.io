@@ -1,0 +1,4 @@
+Contact: mailto:hello@lpossamai.me
+Expires: 2027-09-27T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.lpossamai.me/.well-known/security.txt

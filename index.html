@@ -1,70 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://dev.to https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light">
-    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0b2545">
     <meta name="description"
-        content="Lucas Possamai - senior platform engineer building secure cloud platforms, AI infrastructure, RAG systems, and compliance-ready automation.">
-    <title>Lucas Possamai | Platform Engineer</title>
-    <script>
-        (function () {
-            var theme = 'dark';
-            try {
-                theme = localStorage.getItem('theme') || theme;
-            } catch (error) {
-                // Storage unavailable; keep the default theme.
-            }
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
+        content="Lucas Possamai - AI infrastructure security and platform engineer building secure cloud platforms, Zero Trust foundations for AI agents, RAG systems, and compliance-ready automation.">
+    <title>Lucas Possamai | AI Infrastructure Security Engineer</title>
+    <script src="theme-init.js"></script>
     <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000000'/%3E%3Cpath d='M12 16h40v32H12z' fill='none' stroke='%2300ff66' stroke-width='4'/%3E%3Cpath d='M20 28l8 6-8 6M32 42h14' fill='none' stroke='%23ffbd2e' stroke-width='4' stroke-linecap='square'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b2545'/%3E%3Cpath d='M10 10h44v44H10z' fill='none' stroke='%23e8f1ff' stroke-width='3'/%3E%3Cpath d='M20 18v28h12M38 46V18h6a7 7 0 010 14h-6' fill='none' stroke='%23ffb547' stroke-width='4'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <nav class="nav" aria-label="Primary navigation">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="#home" aria-label="Lucas Possamai home">LP</a>
-            </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">Profile</a>
-                <a href="#skills" class="nav-link">Systems</a>
-                <a href="#blog" class="nav-link">Writing</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme, current theme dark">
-                    <span class="theme-toggle-label">Theme -</span>
-                    <span class="theme-toggle-state">DARK</span>
-                    <span class="theme-toggle-icon" aria-hidden="true">☾</span>
-                </button>
-            </div>
-            <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="frame" aria-hidden="true">
+        <div class="frame-zones frame-zones--top">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+        </div>
+        <div class="frame-zones frame-zones--side">
+            <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span>
+        </div>
+    </div>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#home" aria-label="Lucas Possamai, back to top">
+                <span class="brand-mark">LP</span>
+                <span class="brand-dwg">DWG&nbsp;LP-2026-001</span>
+            </a>
+            <nav class="sheet-nav" aria-label="Primary navigation">
+                <a href="#home" data-sheet-link="home"><span>01</span>Overview</a>
+                <a href="#about" data-sheet-link="about"><span>02</span>Notes</a>
+                <a href="#skills" data-sheet-link="skills"><span>03</span>Systems</a>
+                <a href="#blog" data-sheet-link="blog"><span>04</span>Writing</a>
+                <a href="#contact" data-sheet-link="contact"><span>05</span>Contact</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" type="button">
+                <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
+                <span class="theme-toggle-text">Blueprint</span>
             </button>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-grid" aria-hidden="true"></div>
-            <div class="hero-container">
-                <div class="hero-content">
-                    <p class="eyebrow">Senior Platform Engineer / AI Infrastructure</p>
-                    <h1 class="hero-title">Lucas Possamai</h1>
-                    <p class="hero-subtitle">
-                        I build secure, compliance-ready cloud platforms and the AI systems that run on them.
+    <main id="main">
+        <section id="home" class="hero sheet" data-sheet="01" data-sheet-name="General arrangement">
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="sheet-kicker">Sheet 01 / 05 &mdash; General arrangement</p>
+                    <div class="dim dim--name" aria-hidden="true"><span>AI Infrastructure Security Engineer</span></div>
+                    <h1 class="hero-title">
+                        <span class="hero-title-line">Lucas</span>
+                        <span class="hero-title-line">Possamai</span>
+                    </h1>
+                    <p class="visually-hidden">AI Infrastructure Security Engineer</p>
+                    <p class="hero-lede">
+                        I build <mark>secure, compliance-ready</mark> cloud platforms and the AI systems that run on
+                        them.
                     </p>
                     <p class="hero-description">
                         My work sits where platform engineering, DevSecOps, and applied AI meet: landing zones,
@@ -72,365 +76,493 @@
                         and incident response workflows.
                     </p>
                     <div class="hero-actions">
-                        <a href="#skills" class="btn btn-primary">View systems</a>
-                        <a href="#contact" class="btn btn-secondary">Contact</a>
+                        <a href="#skills" class="btn btn-primary">Inspect the systems <span aria-hidden="true">&darr;</span></a>
+                        <a href="#contact" class="btn btn-ghost">Get in touch</a>
                     </div>
-                    <dl class="hero-metrics" aria-label="Professional highlights">
-                        <div>
+                    <dl class="metrics" aria-label="Professional highlights">
+                        <div class="metric">
                             <dt>10+</dt>
                             <dd>years in platform and cloud engineering</dd>
                         </div>
-                        <div>
-                            <dt>6.4x</dt>
+                        <div class="metric">
+                            <dt>6.4&times;</dt>
                             <dd>CI build speedup delivered through automation</dd>
                         </div>
-                        <div>
+                        <div class="metric">
                             <dt>90%</dt>
                             <dd>manual platform tasks automated</dd>
                         </div>
                     </dl>
                 </div>
 
-                <div class="hero-visual" aria-label="Platform operations terminal illustration">
-                    <div class="terminal-window">
-                        <div class="terminal-titlebar">
-                            <div class="terminal-chrome" aria-hidden="true">
-                                <span class="terminal-light terminal-red"></span>
-                                <span class="terminal-light terminal-amber"></span>
-                                <span class="terminal-light terminal-green"></span>
-                            </div>
-                            <span class="terminal-label">platform-console</span>
-                            <div class="terminal-tabs" role="tablist" aria-label="Console views">
-                                <button class="terminal-tab is-active" type="button" role="tab" aria-selected="true"
-                                    data-terminal-tab="deploy">deploy</button>
-                                <button class="terminal-tab" type="button" role="tab" aria-selected="false"
-                                    data-terminal-tab="cost">cost</button>
-                                <button class="terminal-tab" type="button" role="tab" aria-selected="false"
-                                    data-terminal-tab="observe">observe</button>
-                            </div>
-                        </div>
-                        <div class="terminal-screen">
-                            <div class="terminal-page is-active" data-terminal-page="deploy" role="tabpanel">
-                                <div class="terminal-row">
-                                    <span class="prompt">$</span>
-                                    <span>deploy secure-ai-platform --env production</span>
-                                </div>
-                                <div class="terminal-output success">policy checks passed: pci-dss, iso-27001, soc-2</div>
-                                <div class="terminal-output">terraform plan: 0 to add, 0 to change, 0 to destroy</div>
-                                <div class="terminal-output">rag pipeline: hybrid search + rerank online</div>
-                                <div class="terminal-output">observability: traces, logs, metrics streaming</div>
-                                <div class="terminal-row terminal-cursor">
-                                    <span class="prompt">$</span>
-                                    <span>ship reliable systems</span>
-                                </div>
-                            </div>
-                            <div class="terminal-page" data-terminal-page="cost" role="tabpanel" hidden>
-                                <div class="terminal-row">
-                                    <span class="prompt">$</span>
-                                    <span>infracost breakdown --path infra/production</span>
-                                </div>
-                                <div class="cost-grid">
-                                    <div>
-                                        <span class="panel-kicker">monthly estimate</span>
-                                        <strong>$8.4k</strong>
-                                        <small>tracked before merge</small>
-                                    </div>
-                                    <div>
-                                        <span class="panel-kicker">change</span>
-                                        <strong class="success-text">-31%</strong>
-                                        <small>rightsizing and spot capacity</small>
-                                    </div>
-                                </div>
-                                <div class="terminal-bars" aria-label="Cost comparison graph">
-                                    <div style="--bar-size: 92%">
-                                        <span>compute</span>
-                                        <i></i>
-                                        <b>$4.1k</b>
-                                    </div>
-                                    <div style="--bar-size: 56%">
-                                        <span>data</span>
-                                        <i></i>
-                                        <b>$2.2k</b>
-                                    </div>
-                                    <div style="--bar-size: 36%">
-                                        <span>egress</span>
-                                        <i></i>
-                                        <b>$1.1k</b>
-                                    </div>
-                                    <div style="--bar-size: 24%">
-                                        <span>logs</span>
-                                        <i></i>
-                                        <b>$0.7k</b>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="terminal-page" data-terminal-page="observe" role="tabpanel" hidden>
-                                <div class="terminal-row">
-                                    <span class="prompt">$</span>
-                                    <span>watch service-slo --window 30d</span>
-                                </div>
-                                <div class="observability-chart" aria-label="Latency and error budget chart">
-                                    <svg viewBox="0 0 420 150" role="img" aria-label="Service health graph">
-                                        <path class="chart-grid-line" d="M0 120H420M0 80H420M0 40H420"></path>
-                                        <path class="chart-area"
-                                            d="M0 150V104L35 98L70 86L105 92L140 78L175 66L210 70L245 52L280 58L315 42L350 48L385 34L420 28V150Z">
-                                        </path>
-                                        <path class="chart-line"
-                                            d="M0 104L35 98L70 86L105 92L140 78L175 66L210 70L245 52L280 58L315 42L350 48L385 34L420 28">
-                                        </path>
-                                        <path class="chart-line-alt"
-                                            d="M0 132L35 126L70 130L105 118L140 124L175 110L210 116L245 104L280 108L315 92L350 98L385 84L420 88">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="slo-grid">
-                                    <div><span>p95 latency</span><strong>184ms</strong></div>
-                                    <div><span>error budget</span><strong>93%</strong></div>
-                                    <div><span>trace coverage</span><strong>99%</strong></div>
-                                </div>
-                            </div>
-                        </div>
+                <figure class="drawing" id="drawing">
+                    <div class="drawing-head">
+                        <span>Fig. 1</span>
+                        <span>Secure AI platform &mdash; typical layout</span>
+                        <span class="drawing-coords" id="drawing-coords" aria-hidden="true">X 000 Y 000</span>
                     </div>
-                    <div class="signal-board">
-                        <div>
-                            <span class="signal-label">cost</span>
-                            <span class="signal-value">Infracost gates before merge</span>
-                        </div>
-                        <div>
-                            <span class="signal-label">observe</span>
-                            <span class="signal-value">metrics, traces, and logs linked</span>
-                        </div>
-                        <div>
-                            <span class="signal-label">deploy</span>
-                            <span class="signal-value">policy checks block risky changes</span>
-                        </div>
+                    <div class="drawing-canvas">
+                        <svg class="plan" viewBox="0 0 480 540" role="group"
+                            aria-label="Architecture drawing of a secure AI platform: edge, landing zone guardrails, Kubernetes platform running a hybrid RAG pipeline, with CI/CD policy gates and observability rails.">
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7"
+                                    markerHeight="7" orient="auto-start-reverse">
+                                    <path d="M0 0L10 5L0 10z" class="plan-arrowhead"></path>
+                                </marker>
+                            </defs>
+
+                            <g class="part" data-part="edge" tabindex="0" aria-label="Edge">
+                                <circle cx="222" cy="18" r="5" class="plan-stroke" pathLength="1"></circle>
+                                <circle cx="240" cy="18" r="5" class="plan-stroke" pathLength="1"></circle>
+                                <circle cx="258" cy="18" r="5" class="plan-stroke" pathLength="1"></circle>
+                                <rect x="160" y="40" width="160" height="36" class="plan-box" pathLength="1"></rect>
+                                <text x="240" y="63" class="plan-label">EDGE · WAF · CDN</text>
+                                <circle cx="160" cy="40" r="9" class="plan-balloon"></circle>
+                                <text x="160" y="44" class="plan-balloon-text">1</text>
+                            </g>
+                            <path d="M240 24V40M240 76V150" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+
+                            <g class="part" data-part="zone" tabindex="0" aria-label="Landing zone">
+                                <rect x="64" y="110" width="352" height="386" class="plan-zone" pathLength="1"></rect>
+                                <rect x="64" y="96" width="118" height="14" class="plan-tab"></rect>
+                                <text x="70" y="106" class="plan-tab-text">LANDING ZONE</text>
+                            </g>
+
+                            <g class="part" data-part="guardrails" tabindex="0" aria-label="Guardrails">
+                                <rect x="80" y="150" width="100" height="32" class="plan-box" pathLength="1"></rect>
+                                <text x="130" y="170" class="plan-label">IAM</text>
+                                <rect x="190" y="150" width="100" height="32" class="plan-box" pathLength="1"></rect>
+                                <text x="240" y="170" class="plan-label">NETWORK</text>
+                                <rect x="300" y="150" width="100" height="32" class="plan-box" pathLength="1"></rect>
+                                <text x="350" y="170" class="plan-label">AUDIT LOG</text>
+                                <circle cx="80" cy="150" r="9" class="plan-balloon"></circle>
+                                <text x="80" y="154" class="plan-balloon-text">2</text>
+                            </g>
+                            <path d="M240 182V206" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+
+                            <g class="part" data-part="k8s" tabindex="0" aria-label="Kubernetes platform">
+                                <rect x="80" y="206" width="320" height="276" class="plan-box plan-box--soft" pathLength="1"></rect>
+                                <text x="90" y="222" class="plan-caption">KUBERNETES PLATFORM</text>
+                                <circle cx="400" cy="206" r="9" class="plan-balloon"></circle>
+                                <text x="400" y="210" class="plan-balloon-text">3</text>
+                            </g>
+
+                            <g class="part" data-part="pipeline" tabindex="0" aria-label="Ingest and embed">
+                                <rect x="100" y="236" width="130" height="32" class="plan-box" pathLength="1"></rect>
+                                <text x="165" y="256" class="plan-label">INGEST</text>
+                                <rect x="250" y="236" width="130" height="32" class="plan-box" pathLength="1"></rect>
+                                <text x="315" y="256" class="plan-label">EMBED</text>
+                                <path d="M230 252H250" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+                                <circle cx="100" cy="236" r="9" class="plan-balloon"></circle>
+                                <text x="100" y="240" class="plan-balloon-text">4</text>
+                            </g>
+                            <path d="M165 268V292M315 268V292" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+
+                            <g class="part" data-part="hybrid" tabindex="0" aria-label="Hybrid retrieval">
+                                <path d="M105 300v36a60 9 0 00120 0v-36" class="plan-stroke" pathLength="1"></path>
+                                <ellipse cx="165" cy="300" rx="60" ry="9" class="plan-stroke" pathLength="1"></ellipse>
+                                <text x="165" y="332" class="plan-label">FULL-TEXT</text>
+                                <path d="M255 300v36a60 9 0 00120 0v-36" class="plan-stroke" pathLength="1"></path>
+                                <ellipse cx="315" cy="300" rx="60" ry="9" class="plan-stroke" pathLength="1"></ellipse>
+                                <text x="315" y="332" class="plan-label">VECTOR</text>
+                            </g>
+                            <path d="M165 346V360H225V376M315 346V360H255V376" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+
+                            <g class="part" data-part="rerank" tabindex="0" aria-label="Rank fusion and rerank">
+                                <rect x="150" y="376" width="180" height="32" class="plan-box" pathLength="1"></rect>
+                                <text x="240" y="396" class="plan-label">RRF · RERANK</text>
+                            </g>
+                            <path d="M240 408V432" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+
+                            <g class="part" data-part="llm" tabindex="0" aria-label="Model invocation">
+                                <rect x="150" y="432" width="180" height="32" class="plan-box plan-box--accent" pathLength="1"></rect>
+                                <text x="240" y="452" class="plan-label">LLM · AUDIT TRAIL</text>
+                                <circle cx="330" cy="432" r="9" class="plan-balloon"></circle>
+                                <text x="330" y="436" class="plan-balloon-text">5</text>
+                            </g>
+
+                            <g class="part" data-part="cicd" tabindex="0" aria-label="CI/CD and policy gates">
+                                <rect x="8" y="206" width="40" height="276" class="plan-box" pathLength="1"></rect>
+                                <text x="28" y="344" class="plan-label plan-label--vertical"
+                                    transform="rotate(-90 28 344)">CI/CD · POLICY GATES</text>
+                                <path d="M48 300H80" class="plan-flow" marker-end="url(#arrow)" pathLength="1"></path>
+                                <path d="M64 292l8 8-8 8-8-8z" class="plan-gate"></path>
+                                <circle cx="8" cy="206" r="9" class="plan-balloon"></circle>
+                                <text x="8" y="210" class="plan-balloon-text">6</text>
+                            </g>
+
+                            <g class="part" data-part="observe" tabindex="0" aria-label="Observability">
+                                <rect x="432" y="206" width="40" height="276" class="plan-box" pathLength="1"></rect>
+                                <text x="452" y="344" class="plan-label plan-label--vertical"
+                                    transform="rotate(-90 452 344)">OBSERVABILITY · SLOs</text>
+                                <path d="M380 252H432M375 318H432M330 392H432M330 448H432" class="plan-leader" pathLength="1"></path>
+                                <circle cx="472" cy="206" r="9" class="plan-balloon"></circle>
+                                <text x="472" y="210" class="plan-balloon-text">7</text>
+                            </g>
+
+                            <g class="plan-dim" aria-hidden="true">
+                                <path d="M64 504V530M416 504V530" class="plan-dim-line"></path>
+                                <path d="M64 522H416" class="plan-dim-line" marker-start="url(#arrow)"
+                                    marker-end="url(#arrow)"></path>
+                                <rect x="170" y="514" width="140" height="16" class="plan-dim-bg"></rect>
+                                <text x="240" y="526" class="plan-dim-text">MULTI-ACCOUNT · MULTI-ENV</text>
+                            </g>
+                        </svg>
                     </div>
-                </div>
+                    <figcaption class="drawing-detail" id="drawing-detail" aria-live="polite">
+                        <span class="drawing-detail-ref" id="drawing-detail-ref">Detail</span>
+                        <span id="drawing-detail-text">Tap or hover any part to read its spec.</span>
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
-        <section id="about" class="about section">
+        <section id="about" class="sheet notes" data-sheet="02" data-sheet-name="General notes">
             <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Operator profile</p>
-                    <h2 class="section-title">Platform work with security built in</h2>
-                </div>
-                <div class="about-layout">
-                    <div class="about-copy">
-                        <p>
+                <header class="sheet-head reveal">
+                    <span class="sheet-number" aria-hidden="true">02</span>
+                    <div>
+                        <p class="sheet-kicker">Sheet 02 / 05 &mdash; General notes</p>
+                        <h2 class="sheet-title">Platform work with security built in</h2>
+                    </div>
+                </header>
+                <div class="notes-layout">
+                    <ol class="notes-list reveal">
+                        <li>
                             I lead platform security and infrastructure across public cloud, Kubernetes, and
                             containerized workloads. I design multi-cloud foundations with Terraform and Terragrunt,
                             policy guardrails, centralized logging, least-privilege access, and audit-ready deployment
                             paths.
-                        </p>
-                        <p>
+                        </li>
+                        <li>
                             I also build AI infrastructure: RAG systems, vector search, model invocation audit trails,
-                            and human-in-the-loop workflows. The goal is practical reliability: systems that are secure,
-                            observable, cost-aware, and clear enough for teams to operate.
-                        </p>
-                    </div>
-                    <div class="operator-panel">
-                        <h3>Current focus</h3>
-                        <ul>
-                            <li>Security-first landing zones and platform guardrails</li>
-                            <li>RAG pipelines, vector databases, and LLM integration</li>
-                            <li>Compliance automation for PCI-DSS, ISO 27001, and SOC 2</li>
-                            <li>CI/CD performance, cloud cost control, and incident response</li>
-                        </ul>
-                    </div>
+                            and human-in-the-loop workflows.
+                        </li>
+                        <li>
+                            The goal is practical reliability: systems that are secure, observable, cost-aware, and
+                            clear enough for teams to operate.
+                        </li>
+                    </ol>
+                    <aside class="focus-card reveal" aria-labelledby="focus-title">
+                        <h3 id="focus-title">Current focus</h3>
+                        <table class="focus-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Rev</th>
+                                    <th scope="col">Work item</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="rev-tri">A</span></td>
+                                    <td>Security-first landing zones and platform guardrails</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rev-tri">B</span></td>
+                                    <td>RAG pipelines, vector databases, and LLM integration</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rev-tri">C</span></td>
+                                    <td>Compliance automation for PCI-DSS, ISO 27001, and SOC 2</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rev-tri">D</span></td>
+                                    <td>CI/CD performance, cloud cost control, and incident response</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rev-tri">E</span></td>
+                                    <td>Zero Trust foundations and secure execution for AI agents</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </aside>
                 </div>
+
+                <article class="assignment reveal" aria-labelledby="assignment-title">
+                    <header class="assignment-head">
+                        <span class="assignment-ref">Detail B</span>
+                        <span>Latest assignment</span>
+                    </header>
+                    <div class="assignment-body">
+                        <div class="assignment-intro">
+                            <h3 class="assignment-title" id="assignment-title">AI Infrastructure Security Engineer</h3>
+                            <p>
+                                Securing the platform layer of an AI-native operating system built for large, regulated
+                                institutions: the cloud, Kubernetes, identity, and networking that AI agents run on.
+                            </p>
+                            <p>
+                                It is a hands-on builder role. I write the code and ship the infrastructure alongside
+                                the platform, product, and ML teams, so secure-by-default is the paved road rather than
+                                a review at the end.
+                            </p>
+                            <ul class="materials" aria-label="Key technologies">
+                                <li>Zero Trust</li>
+                                <li>Kubernetes</li>
+                                <li>Service mesh</li>
+                                <li>Terraform</li>
+                                <li>Secrets &amp; KMS</li>
+                            </ul>
+                        </div>
+                        <ol class="scope-list" aria-label="Scope of work">
+                            <li>
+                                <h4>Identity &amp; isolation</h4>
+                                <p>Secrets management, access control, and workload isolation across cloud and
+                                    Kubernetes.</p>
+                            </li>
+                            <li>
+                                <h4>Zero Trust</h4>
+                                <p>Machine identity, short-lived credentials, least privilege, and encrypted
+                                    service-to-service traffic.</p>
+                            </li>
+                            <li>
+                                <h4>Agent workloads</h4>
+                                <p>Secure execution environments and data-access paths for code and actions taken by
+                                    AI agents.</p>
+                            </li>
+                            <li>
+                                <h4>Forward-deployed</h4>
+                                <p>Hardened, bespoke VPCs and customer-environment deployments, each with its own attack
+                                    surface.</p>
+                            </li>
+                            <li>
+                                <h4>Guardrails as code</h4>
+                                <p>Security built into Terraform and deployment workflows so it scales with the
+                                    platform.</p>
+                            </li>
+                            <li>
+                                <h4>Threat modeling</h4>
+                                <p>Trust boundaries and failure modes across every infrastructure layer, turned into
+                                    concrete controls.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="skills" class="skills section">
+        <section id="skills" class="sheet bom" data-sheet="03" data-sheet-name="Bill of materials">
             <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Systems I build</p>
-                    <h2 class="section-title">From cloud foundations to AI runtime</h2>
-                </div>
-                <div class="skills-grid">
-                    <article class="skill-category">
-                        <div class="skill-index">01</div>
-                        <h3>Cloud Platforms</h3>
-                        <p>Landing zones, account and subscription vending, network segmentation, container platforms,
-                            and production-grade deployment foundations.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Public cloud</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Containers</span>
-                            <span class="skill-tag">Networking</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <div class="skill-index">02</div>
-                        <h3>Security & Compliance</h3>
-                        <p>Control mapping, vulnerability management, least-privilege access, audit evidence,
-                            incident response, and hardened runtime design.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PCI-DSS v4</span>
-                            <span class="skill-tag">ISO 27001</span>
-                            <span class="skill-tag">SOC 2</span>
-                            <span class="skill-tag">CIS</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <div class="skill-index">03</div>
-                        <h3>Automation</h3>
-                        <p>Infrastructure as Code, GitOps workflows, CI/CD pipelines, policy checks, security scanning,
-                            and repeatable multi-environment delivery.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">Terragrunt</span>
-                            <span class="skill-tag">Ansible</span>
-                            <span class="skill-tag">CI/CD</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <div class="skill-index">04</div>
-                        <h3>AI Infrastructure</h3>
-                        <p>RAG pipelines, hybrid retrieval, embedding workflows, reranking, model audit logging, and
-                            secure platform patterns for AI-powered products.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">RAG</span>
-                            <span class="skill-tag">Vector search</span>
-                            <span class="skill-tag">Hybrid search</span>
-                            <span class="skill-tag">LLM ops</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <div class="skill-index">05</div>
-                        <h3>Observability</h3>
-                        <p>Metrics, logs, traces, alerting, post-incident review, and operational dashboards that make
-                            production behavior visible.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Metrics</span>
-                            <span class="skill-tag">Logs</span>
-                            <span class="skill-tag">Tracing</span>
-                            <span class="skill-tag">SLOs</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <div class="skill-index">06</div>
-                        <h3>Data Platforms</h3>
-                        <p>Relational databases, replication, migration planning, performance tuning, and storage
-                            patterns for high-throughput production systems.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">Replication</span>
-                            <span class="skill-tag">SQL</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog" class="blog section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Writing</p>
-                    <h2 class="section-title">Latest technical articles</h2>
-                    <p class="section-copy">Fresh posts from my developer writing feed.</p>
-                </div>
-                <div class="blog-grid" id="devto-feed">
-                    <div class="blog-loading">
-                        <span class="loading-spinner"></span>
-                        <span>Loading articles...</span>
-                    </div>
-                </div>
-                <div class="blog-cta">
-                    <a href="https://dev.to/lpossamai" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary">View all articles</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Contact</p>
-                    <h2 class="section-title">Let us talk systems</h2>
-                </div>
-                <div class="contact-content">
+                <header class="sheet-head reveal">
+                    <span class="sheet-number" aria-hidden="true">03</span>
                     <div>
-                        <p class="contact-description">
+                        <p class="sheet-kicker">Sheet 03 / 05 &mdash; Bill of materials</p>
+                        <h2 class="sheet-title">From cloud foundations to AI runtime</h2>
+                    </div>
+                </header>
+                <table class="bom-table reveal">
+                    <caption class="visually-hidden">Systems I build</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Component</th>
+                            <th scope="col">Specification</th>
+                            <th scope="col">Materials</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bom-item">01</td>
+                            <th scope="row">Cloud Platforms</th>
+                            <td>Landing zones, account and subscription vending, network segmentation, container
+                                platforms, and production-grade deployment foundations.</td>
+                            <td>
+                                <ul class="materials">
+                                    <li>Public cloud</li>
+                                    <li>Kubernetes</li>
+                                    <li>Containers</li>
+                                    <li>Networking</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bom-item">02</td>
+                            <th scope="row">Security &amp; Compliance</th>
+                            <td>Control mapping, vulnerability management, least-privilege access, audit evidence,
+                                incident response, and hardened runtime design.</td>
+                            <td>
+                                <ul class="materials">
+                                    <li>PCI-DSS v4</li>
+                                    <li>ISO 27001</li>
+                                    <li>SOC 2</li>
+                                    <li>CIS</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bom-item">03</td>
+                            <th scope="row">Automation</th>
+                            <td>Infrastructure as Code, GitOps workflows, CI/CD pipelines, policy checks, security
+                                scanning, and repeatable multi-environment delivery.</td>
+                            <td>
+                                <ul class="materials">
+                                    <li>Terraform</li>
+                                    <li>Terragrunt</li>
+                                    <li>Ansible</li>
+                                    <li>CI/CD</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bom-item">04</td>
+                            <th scope="row">AI Infrastructure</th>
+                            <td>RAG pipelines, hybrid retrieval, embedding workflows, reranking, model audit logging,
+                                and secure platform patterns for AI-powered products.</td>
+                            <td>
+                                <ul class="materials">
+                                    <li>RAG</li>
+                                    <li>Vector search</li>
+                                    <li>Hybrid search</li>
+                                    <li>LLM ops</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bom-item">05</td>
+                            <th scope="row">Observability</th>
+                            <td>Metrics, logs, traces, alerting, post-incident review, and operational dashboards that
+                                make production behavior visible.</td>
+                            <td>
+                                <ul class="materials">
+                                    <li>Metrics</li>
+                                    <li>Logs</li>
+                                    <li>Tracing</li>
+                                    <li>SLOs</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bom-item">06</td>
+                            <th scope="row">Data Platforms</th>
+                            <td>Relational databases, replication, migration planning, performance tuning, and storage
+                                patterns for high-throughput production systems.</td>
+                            <td>
+                                <ul class="materials">
+                                    <li>PostgreSQL</li>
+                                    <li>MySQL</li>
+                                    <li>Replication</li>
+                                    <li>SQL</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="blog" class="sheet revisions" data-sheet="04" data-sheet-name="Revision log">
+            <div class="container">
+                <header class="sheet-head reveal">
+                    <span class="sheet-number" aria-hidden="true">04</span>
+                    <div>
+                        <p class="sheet-kicker">Sheet 04 / 05 &mdash; Revision log</p>
+                        <h2 class="sheet-title">Latest technical articles</h2>
+                    </div>
+                </header>
+                <div class="rev-log reveal">
+                    <div class="rev-row rev-row--head" aria-hidden="true">
+                        <span>Rev</span>
+                        <span>Date</span>
+                        <span>Description</span>
+                        <span>Read</span>
+                    </div>
+                    <ol class="rev-list" id="devto-feed" aria-live="polite" aria-busy="true">
+                        <li class="rev-status">Loading articles&hellip;</li>
+                    </ol>
+                </div>
+                <p class="rev-more">
+                    <a href="https://dev.to/lpossamai" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                        All articles on dev.to <span aria-hidden="true">&nearr;</span>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="sheet signoff" data-sheet="05" data-sheet-name="Sign-off">
+            <div class="container">
+                <header class="sheet-head reveal">
+                    <span class="sheet-number" aria-hidden="true">05</span>
+                    <div>
+                        <p class="sheet-kicker">Sheet 05 / 05 &mdash; Sign-off</p>
+                        <h2 class="sheet-title">Let&rsquo;s talk systems</h2>
+                    </div>
+                </header>
+                <div class="signoff-layout reveal">
+                    <div class="signoff-copy">
+                        <p>
                             Reach out for platform engineering, AI infrastructure, compliance automation, security
                             hardening, or production reliability work.
                         </p>
-                        <div class="contact-details">
-                            <a class="contact-item" href="mailto:hello@lpossamai.me">
-                                <span class="contact-icon">@</span>
-                                <span>hello@lpossamai.me</span>
-                            </a>
-                            <div class="contact-item">
-                                <span class="contact-icon">#</span>
+                        <a class="signoff-email" href="mailto:hello@lpossamai.me">hello@lpossamai.me</a>
+                        <ul class="refs">
+                            <li>
+                                <span class="refs-key">Ref. 01</span>
+                                <a href="https://github.com/lpossamai" target="_blank" rel="noopener noreferrer">github.com/lpossamai</a>
+                            </li>
+                            <li>
+                                <span class="refs-key">Ref. 02</span>
+                                <a href="https://dev.to/lpossamai" target="_blank" rel="noopener noreferrer">dev.to/lpossamai</a>
+                            </li>
+                            <li>
+                                <span class="refs-key">Site</span>
                                 <span>Auckland, New Zealand</span>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="social-links">
-                        <a href="https://github.com/lpossamai" target="_blank" rel="noopener noreferrer"
-                            class="social-link">
-                            <span class="social-icon">git</span>
-                            <span>Code</span>
-                        </a>
-                        <a href="https://dev.to/lpossamai" target="_blank" rel="noopener noreferrer"
-                            class="social-link">
-                            <span class="social-icon">txt</span>
-                            <span>Articles</span>
-                        </a>
+                    <div class="stamp" aria-hidden="true">
+                        <span class="stamp-top">Reviewed &amp;</span>
+                        <span class="stamp-main">Approved</span>
+                        <span class="stamp-bottom">for production</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="title-block">
         <div class="container">
-            <p>&copy; 2026 Lucas Possamai</p>
+            <dl class="title-block-grid">
+                <div class="tb-cell tb-cell--wide">
+                    <dt>Project</dt>
+                    <dd>lpossamai.me &mdash; platform &amp; AI infrastructure portfolio</dd>
+                </div>
+                <div class="tb-cell">
+                    <dt>Drawn by</dt>
+                    <dd>L. Possamai</dd>
+                </div>
+                <div class="tb-cell">
+                    <dt>Location</dt>
+                    <dd>Auckland, NZ</dd>
+                </div>
+                <div class="tb-cell">
+                    <dt>Scale</dt>
+                    <dd>1:1</dd>
+                </div>
+                <div class="tb-cell">
+                    <dt>Sheet</dt>
+                    <dd><span id="tb-sheet">01</span> of 05</dd>
+                </div>
+                <div class="tb-cell">
+                    <dt>Rev.</dt>
+                    <dd>&copy; 2026</dd>
+                </div>
+            </dl>
         </div>
     </footer>
 
-    <nav class="bottom-nav" id="bottom-nav" aria-label="Mobile navigation">
-        <div class="bottom-nav-container">
-            <a href="#home" class="bottom-nav-item active" data-section="home">
-                <span class="bottom-nav-icon">00</span>
-                <span class="bottom-nav-label">Home</span>
-            </a>
-            <a href="#about" class="bottom-nav-item" data-section="about">
-                <span class="bottom-nav-icon">01</span>
-                <span class="bottom-nav-label">Profile</span>
-            </a>
-            <a href="#skills" class="bottom-nav-item" data-section="skills">
-                <span class="bottom-nav-icon">02</span>
-                <span class="bottom-nav-label">Systems</span>
-            </a>
-            <a href="#blog" class="bottom-nav-item" data-section="blog">
-                <span class="bottom-nav-icon">03</span>
-                <span class="bottom-nav-label">Writing</span>
-            </a>
-            <a href="#contact" class="bottom-nav-item" data-section="contact">
-                <span class="bottom-nav-icon">04</span>
-                <span class="bottom-nav-label">Contact</span>
-            </a>
-            <button class="bottom-nav-theme" id="bottom-theme-toggle" aria-label="Toggle theme, current theme dark">
-                <span class="bottom-nav-icon" id="bottom-theme-icon">☾</span>
-                <span class="bottom-nav-label" id="bottom-theme-label">Theme</span>
-            </button>
-        </div>
+    <nav class="dock" aria-label="Section navigation">
+        <a href="#home" data-sheet-link="home"><span>01</span>Top</a>
+        <a href="#about" data-sheet-link="about"><span>02</span>Notes</a>
+        <a href="#skills" data-sheet-link="skills"><span>03</span>Systems</a>
+        <a href="#blog" data-sheet-link="blog"><span>04</span>Writing</a>
+        <a href="#contact" data-sheet-link="contact"><span>05</span>Contact</a>
     </nav>
 
-    <script src="terminal.js"></script>
+    <div class="sheet-readout" aria-hidden="true">
+        <span id="readout-sheet">Sheet 01</span>
+        <span id="readout-name">General arrangement</span>
+    </div>
 
-    <script>
-        if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) {
-            const analytics = document.createElement('script');
-            analytics.defer = true;
-            analytics.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-            analytics.dataset.cfBeacon = '{"token": "d22633aaaade42e08e4779be8e8b48eb"}';
-            document.head.appendChild(analytics);
-        }
-    </script>
+    <script src="site.js"></script>
 </body>
 
 </html>
