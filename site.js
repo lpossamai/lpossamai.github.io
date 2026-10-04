@@ -5,6 +5,10 @@ const DEVTO_USERNAME = 'lpossamai';
 const DEVTO_API_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=6`;
 const DEVTO_PROFILE_URL = `https://dev.to/${DEVTO_USERNAME}`;
 const THEME_COLORS = { light: '#f3efe4', dark: '#0b2545' };
+// PostHog project token is a public, write-only ingestion key; it is meant to ship in client code.
+const POSTHOG_TOKEN = 'phc_osNuFNpM7MDMWA4PSQPxJW6qBkQEDeM9ninA3YgL9yed';
+const POSTHOG_API_HOST = 'https://e.lpossamai.me';
+const POSTHOG_UI_HOST = 'https://us.posthog.com';
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -14,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeReveal();
   initializeDrawing();
   initializeDevToFeed();
+  initializeLinkTracking();
   loadAnalytics();
 });
 
@@ -45,7 +50,9 @@ function initializeTheme() {
 
   toggle?.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
-    applyTheme(current === 'dark' ? 'light' : 'dark', true);
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next, true);
+    track('theme_toggled', { theme: next });
   });
 }
 
@@ -57,8 +64,13 @@ function initializeSheetTracking() {
   const readoutSheet = document.getElementById('readout-sheet');
   const readoutName = document.getElementById('readout-name');
   if (sheets.length === 0 || !('IntersectionObserver' in window)) return;
+  const viewed = new Set();
 
   function setActive(section) {
+    if (!viewed.has(section.id)) {
+      viewed.add(section.id);
+      track('section_viewed', { sheet: section.dataset.sheet, section: section.id, name: section.dataset.sheetName });
+    }
     const id = section.id;
     links.forEach(link => {
       if (link.dataset.sheetLink === id) {
@@ -134,9 +146,14 @@ function initializeDrawing() {
   const defaultRef = refEl?.textContent || '';
   const defaultText = textEl?.textContent || '';
   const parts = figure.querySelectorAll('.part');
+  const inspected = new Set();
 
   function showDetail(part) {
     const detail = PART_DETAILS[part?.dataset.part];
+    if (detail && !inspected.has(part.dataset.part)) {
+      inspected.add(part.dataset.part);
+      track('drawing_part_inspected', { part: part.dataset.part });
+    }
     parts.forEach(p => p.classList.toggle('is-active', p === part));
     figure.classList.toggle('has-active', Boolean(detail));
     if (refEl) refEl.textContent = detail ? detail[0] : defaultRef;
@@ -220,6 +237,7 @@ async function initializeDevToFeed() {
     }
   } catch (error) {
     console.error('Unable to load articles:', error);
+    track('devto_feed_failed', { reason: error?.name === 'AbortError' ? 'timeout' : String(error?.message || error) });
     list.replaceChildren(createStatusRow('Unable to load articles right now. ', {
       href: DEVTO_PROFILE_URL,
       text: 'Read them on dev.to'
@@ -330,4 +348,54 @@ function loadAnalytics() {
   beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
   beacon.dataset.cfBeacon = JSON.stringify({ token: 'd22633aaaade42e08e4779be8e8b48eb' });
   document.head.appendChild(beacon);
+
+  loadPostHog();
+}
+
+function loadPostHog() {
+  // Same contract as PostHog's inline snippet (which the CSP blocks): queue calls on
+  // window.posthog until array.js loads, then it runs `_i` inits and replays the queue.
+  const queue = [];
+  queue.__SV = 1;
+  queue.people = [];
+  queue._i = [[POSTHOG_TOKEN, {
+    api_host: POSTHOG_API_HOST,
+    ui_host: POSTHOG_UI_HOST,
+    defaults: '2026-08-30',
+    cookieless_mode: 'always',
+    person_profiles: 'identified_only',
+    // Section jumps are hash changes on one page; count them as section_viewed, not pageviews.
+    capture_pageview: true,
+    capture_pageleave: true,
+    disable_session_recording: true,
+    disable_surveys: true
+  }]];
+  ['capture', 'register', 'opt_in_capturing', 'opt_out_capturing'].forEach(method => {
+    queue[method] = (...args) => queue.push([method, ...args]);
+  });
+  window.posthog = queue;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  script.src = `${POSTHOG_API_HOST}/static/array.js`;
+  document.head.appendChild(script);
+}
+
+function track(event, properties) {
+  window.posthog?.capture(event, properties);
+}
+
+function initializeLinkTracking() {
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('a[href]');
+    if (!link) return;
+
+    const url = new URL(link.href, window.location.href);
+    if (url.protocol === 'mailto:') {
+      track('contact_email_clicked');
+    } else if (url.hostname !== window.location.hostname) {
+      track('outbound_link_clicked', { destination: url.hostname, url: url.href, text: link.textContent.trim().slice(0, 120) });
+    }
+  });
 }
