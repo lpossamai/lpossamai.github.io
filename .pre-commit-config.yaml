@@ -10,3 +10,11 @@ repos:
       - id: detect-private-key
       # - id: no-commit-to-branch
       #   args: [--branch, main]
+  - repo: local
+    hooks:
+      - id: stamp-assets
+        name: stamp asset cache-busting hashes
+        entry: python3 scripts/stamp_assets.py
+        language: system
+        files: ^(index\.html|styles\.css|site\.js|theme-init\.js)$
+        pass_filenames: false
